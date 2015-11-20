@@ -25,6 +25,12 @@ public abstract class Joueurs {
         casesAlignees = false;
     }
 
+    public  abstract void prendreCube(int i, int j);
+
+    public  abstract void placerCube(int i, int j);
+
+    public  abstract void bougerPiece(int i, int j);
+
     public int getTypeIdJoueur() { return typeId; }
 
     public boolean isAlignees() { return casesAlignees; }
