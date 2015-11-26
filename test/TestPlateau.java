@@ -9,7 +9,7 @@ import org.junit.Test;
 public class TestPlateau {
     @Test
     public void testSiJoueurGagne(){
-        Humains joueur = new Humains("joueur 1");
+        Humains joueur = new Humains();
         Plateau plateau = new Plateau();
 
 
