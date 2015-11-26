@@ -10,16 +10,25 @@ public class Humains extends Joueurs {
 
     public Humains() {
         super("Humain");
-        typeId = HUMAIN;
+        figure = 0;
     }
 
-    public int getTypeIdJoueur() { return super.getTypeIdJoueur(); }
+    @Override
+    public void prendreCube(int i, int j) {
 
-    public boolean isAlignees() { return super.isAlignees(); }
-
-    public void setCasesAlignees(boolean valeur) {
-        super.setCasesAlignees(valeur);
     }
+
+    @Override
+    public void placerCube(int i, int j) {
+
+    }
+
+    @Override
+    public void bougerPiece(int i, int j) {
+
+    }
+
+    public void setFigure(int figure){this.figure =figure;}
 
     public String getNomJoueur() { return super.getNomJoueur();}
 
