@@ -9,6 +9,6 @@ public class Plateau {
     private Fenetre fenetre;
 
     public Plateau(){
-        fenetre = new Fenetre(this);
+        //fenetre = new Fenetre(this);
     }
 }
