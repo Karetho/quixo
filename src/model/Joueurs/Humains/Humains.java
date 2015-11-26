@@ -13,6 +13,11 @@ public class Humains extends Joueurs {
         figure = 0;
     }
 
+    public Humains(String s) {
+        super(s);
+        figure = 0;
+    }
+
     @Override
     public void prendreCube(int i, int j) {
 

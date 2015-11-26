@@ -1,3 +1,4 @@
+import junit.framework.Assert;
 import model.Joueurs.Humains.Humains;
 import model.Plateau;
 import org.junit.Test;
@@ -8,8 +9,9 @@ import org.junit.Test;
 public class TestPlateau {
     @Test
     public void testSiJoueurGagne(){
-        Humains joueur = new Humains();
+        Humains joueur = new Humains("joueur 1");
         Plateau plateau = new Plateau();
+
 
     }
 }
