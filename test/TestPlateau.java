@@ -1,8 +1,9 @@
 
 import model.Joueurs.Humains.Humains;
 import model.Plateau;
-import org.hamcrest.Matcher;
 import org.junit.*;
+import org.mockito.Mockito;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -21,8 +22,10 @@ public class TestPlateau {
 
     //Teste si le joueur a gagne
     @Test
-    public void testSiJoueurGagne(){
+    public void testVerifGagneJoueurFigure(){
         setUp();
+        Mockito.mock(Plateau.class);
+
     }
     //Teste le décalement des cubes sur la ligne
     @Test

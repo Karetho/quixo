@@ -16,7 +16,11 @@ public class Plateau {
             }
         }
     }
+    // Verification des lignes de figures retourne false si pas de cases
+    public boolean verifVictoireJoueurFigure(){
 
+        return false;
+    }
     // Affiche les différentes possibilités que le joueur a apres avoir pris un cube
     public List <int[]> choixPossible(int i, int j) {
         List <int[]> retour = new LinkedList<>();
@@ -56,4 +60,5 @@ public class Plateau {
         }
         return retour;
     }
+
 }

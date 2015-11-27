@@ -18,17 +18,21 @@ public class Jeu {
         j2 = h2;
         plateau = new Plateau();
     }
-
+    //Fonctions random qui permet de choisir
     public Joueurs choixJoueurCommence(Joueurs j1, Joueurs j2) {
         Random aleatoire;
+        // nbJoueur = joueur qui commence
         int nbJoueur;
 
         aleatoire = new Random();
+        // select un nombre entre 1 et 2
         nbJoueur = aleatoire.nextInt(2);
         System.out.println("nbJoueur : " + nbJoueur);
         switch (nbJoueur) {
+            // si 0 j1 commence
             case 0 :
                 return j1;
+            // si 1 j2 commence
             case 1 :
                 return j2;
             default:
@@ -36,7 +40,8 @@ public class Jeu {
         }
         return null;
     }
-
+    // Choisi le joueur qui commence et qui choisi sa figure
+    // retourne le joueur qui commence
     public Joueurs choixFigureJoueur(Joueurs j1, Joueurs j2) {
         Joueurs joueurs;
         int figure;
@@ -52,4 +57,5 @@ public class Jeu {
         }
         return joueurs;
     }
+    //Faire une boucle de jeu (while cdt de victoire est false)
 }

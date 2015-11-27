@@ -18,4 +18,7 @@ public class Cases  {
         this.figure = figure;
     }
 
+    public int getFigure() {
+        return figure;
+    }
 }
