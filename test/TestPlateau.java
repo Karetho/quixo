@@ -36,8 +36,9 @@ public class TestPlateau {
         //Teste le corner en haut a gauche (0,0) ou en bas a droite (4,4)
         setUp();
         List <int[]> liste = new LinkedList<>();
-        liste.add(new int[]{4,0});
         liste.add(new int[]{0,4});
+        liste.add(new int[]{4,0});
+
         joueur.prendreCube(0,0);
         List <int[]> liste1 = plateau.choixPossible(0,0);
         for (int i = 0; i < liste.size(); i++) {
@@ -45,21 +46,26 @@ public class TestPlateau {
         }
         joueur.prendreCube(4,4);
         List <int[]> liste2 = plateau.choixPossible(4,4);
-        for (int i = 0; i < liste.size(); i++) {
-            Assert.assertArrayEquals(liste2.get(i),liste.get(i));
+        for (int j = 0; j < liste.size(); j++) {
+            Assert.assertArrayEquals(liste2.get(j),liste.get(j));
         }
     }
-    /*@Test
+    @Test
     public void testChoixPossibleCorner2(){
-        //Teste le corner en bas a gauche (4,0)
+        //Teste le corner en bas a gauche (4,0) ou en haut a droite (0,4)
         setUp();
         List <int[]> liste = new LinkedList<>();
         liste.add(new int[]{0,0});
         liste.add(new int[]{4,4});
-
         joueur.prendreCube(4,0);
+        List <int[]> liste1 = plateau.choixPossible(4,0);
         for (int i = 0; i < liste.size(); i++) {
-            Assert.assertArrayEquals(plateau.choixPossible(0,4).get(i),liste.get(i));
+            Assert.assertArrayEquals(liste1.get(i),liste.get(i));
+        }
+        joueur.prendreCube(0,4);
+        List <int[]> liste2 = plateau.choixPossible(0,4);
+        for (int j = 0; j < liste.size(); j++) {
+            Assert.assertArrayEquals(liste2.get(j),liste.get(j));
         }
 
     }
@@ -72,7 +78,10 @@ public class TestPlateau {
         liste.add(new int[]{4,0});
         liste.add(new int[]{0,0});
         joueur.prendreCube(2,0);
-        Assert.assertEquals(liste,plateau.choixPossible(2,0));
+        List <int[]> liste2 = plateau.choixPossible(2,0);
+        for (int j = 0; j < liste.size(); j++) {
+            Assert.assertArrayEquals(liste2.get(j),liste.get(j));
+        }
     }
     @Test
     public void testChoixPossibleDroite(){
@@ -83,8 +92,12 @@ public class TestPlateau {
         liste.add(new int[]{0,4});
         liste.add(new int[]{4,4});
         joueur.prendreCube(2,4);
-        Assert.assertEquals(liste,plateau.choixPossible(2,4));
-    }@Test
+        List <int[]> liste2 = plateau.choixPossible(2,4);
+        for (int j = 0; j < liste.size(); j++) {
+            Assert.assertArrayEquals(liste2.get(j),liste.get(j));
+        }
+    }
+    @Test
     public void testChoixPossibleHaut(){
         setUp();
         //Deuxieme test sur une case du milieu
@@ -93,7 +106,10 @@ public class TestPlateau {
         liste.add(new int[]{0,4});
         liste.add(new int[]{0,0});
         joueur.prendreCube(0,2);
-        Assert.assertEquals(liste,plateau.choixPossible(0,2));
+        List <int[]> liste2 = plateau.choixPossible(0,2);
+        for (int j = 0; j < liste.size(); j++) {
+            Assert.assertArrayEquals(liste2.get(j),liste.get(j));
+        }
     }@Test
     public void testChoixPossibleBas(){
         setUp();
@@ -103,6 +119,9 @@ public class TestPlateau {
         liste.add(new int[]{0,4});
         liste.add(new int[]{4,4});
         joueur.prendreCube(4,2);
-        Assert.assertEquals(liste,plateau.choixPossible(4,2));
-    }*/
+        List <int[]> liste2 = plateau.choixPossible(4,2);
+        for (int j = 0; j < liste.size(); j++) {
+            Assert.assertArrayEquals(liste2.get(j),liste.get(j));
+        }
+    }
 }

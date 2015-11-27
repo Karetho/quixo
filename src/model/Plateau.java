@@ -1,6 +1,4 @@
 package model;
-
-
 import java.util.LinkedList;
 import java.util.List;
 
@@ -23,25 +21,25 @@ public class Plateau {
     public List <int[]> choixPossible(int i, int j) {
         List <int[]> retour = new LinkedList<>();
         //Le cube déplacé est dans la bordure du haut
-        if(i == 0 && (j != 0 || j != 4)){
+        if(i == 0 && (j > 0 && j < 4)){
             retour.add(new int[]{4,j});
             retour.add(new int[]{0,4});
             retour.add(new int[]{0,0});
         }
         //Le cube déplacé est dans la bordure du bas
-        else if(i == 4 && (j != 4 || j != 0)){
+        else if(i == 4 && (j < 4 && j > 0)){
             retour.add(new int[]{0,j});
             retour.add(new int[]{0,4});
             retour.add(new int[]{4,4});
         }
         //Le cube déplacé est dans la bordure de gauche
-        else if((i != 0 || i != 4) && j == 0){
+        else if((i > 0 && i < 4) && j == 0){
             retour.add(new int[]{i,4});
             retour.add(new int[]{4,0});
             retour.add(new int[]{0,0});
         }
         //Le cube déplacé est dans la bordure droite
-        else if((i != 0 ||i != 4) && j == 4){
+        else if((i > 0 && i < 4) && j == 4){
             retour.add(new int[]{i,0});
             retour.add(new int[]{0,4});
             retour.add(new int[]{4,4});
