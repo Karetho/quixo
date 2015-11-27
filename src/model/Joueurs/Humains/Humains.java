@@ -38,9 +38,4 @@ public class Humains extends Joueurs {
     public String getNomJoueur() { return super.getNomJoueur();}
 
     public void setNomJoueur(String nomJoueur) { super.setNomJoueur(nomJoueur); }
-
-    @Override
-    public void changerFigure() {
-
-    }
 }
