@@ -8,8 +8,7 @@ import java.awt.*;
  * Created by Roland on 13-Nov-15.
  */
 public class Fenetre extends JFrame{
-   // public Plateau plateau;
-
+    public JButtons tab_button[][] = new JButtons[4][4];
 
     public Fenetre(){
         //this.plateau = plateau;
@@ -25,7 +24,8 @@ public class Fenetre extends JFrame{
         grille.setLayout(new GridLayout(5,5));
         for (int i=0; i<=4 ; i++){
             for (int j=0 ; j<=4 ; j++){
-                grille.add(new JButton());
+                tab_button[i][j]= new JButtons(i,j);
+                grille.add(tab_button[i][j]);
             }
         }
         setContentPane(grille);
