@@ -7,8 +7,8 @@ import java.awt.*;
  */
 public class JButtons extends javax.swing.JButton {
 
-    public int posI;
-    public int posY;
+    private int posI;
+    private int posY;
 
     public JButtons (int i, int j) {
         super();
@@ -22,5 +22,8 @@ public class JButtons extends javax.swing.JButton {
         posI=i;
         this.setPreferredSize(new Dimension(80,80));
         this.setVisible(false);
+        this.setBorderPainted(false);
+        this.setOpaque(false);
+        this.setContentAreaFilled(false);
     }
 }
