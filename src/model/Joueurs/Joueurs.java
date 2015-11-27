@@ -26,8 +26,14 @@ public abstract class Joueurs {
 
     public String getNomJoueur() { return nomJoueur;}
 
+    public void setFigure(int figure) {
+        this.figure = figure;
+    }
+
     public void setNomJoueur(String nomJoueur) { this.nomJoueur = nomJoueur; }
 
+
+    public abstract void changerFigure();
 
     public int getFigure() {
         return figure;
