@@ -19,20 +19,12 @@ public class Jeu {
         plateau = new Plateau();
     }
 
-    public int chiffreAleatoireJoueur() {
-        Random aleatoire;
-        int nbaleatoire;
-
-        aleatoire = new Random();
-        nbaleatoire = aleatoire.nextInt(2);
-        return nbaleatoire;
-    }
-
-
     public Joueurs choixJoueurCommence(Joueurs j1, Joueurs j2) {
+        Random aleatoire;
         int nbJoueur;
 
-        nbJoueur = chiffreAleatoireJoueur();
+        aleatoire = new Random();
+        nbJoueur = aleatoire.nextInt(2);
         System.out.println("nbJoueur : " + nbJoueur);
         switch (nbJoueur) {
             case 0 :
@@ -53,7 +45,7 @@ public class Jeu {
         System.out.println("Veuillez choisir votre symbole : \npour rond entrer 1 \npour croix entrer 2.");
         figure = new Scanner(System.in).nextInt();
         if (figure < 1 || figure > 2) {
-            System.out.println("Vous n'avez pas entré le bon chiffre !");
+            System.out.println("Vous n'avez pas entrÃ© le bon chiffre !");
         }
         else {
             joueurs.setFigure(figure);
