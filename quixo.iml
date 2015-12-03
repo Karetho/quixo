@@ -54,12 +54,18 @@
     </orderEntry>
     <orderEntry type="module-library">
       <library>
-        <CLASSES />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/lib" />
+        </CLASSES>
         <JAVADOC />
         <NATIVE>
-          <root url="file://$MODULE_DIR$/lib/natives-win64" />
+          <root url="file://$MODULE_DIR$/lib" />
         </NATIVE>
-        <SOURCES />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/lib" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/lib" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/lib" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
   </component>
