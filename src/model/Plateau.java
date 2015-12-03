@@ -18,6 +18,65 @@ public class Plateau {
     }
     // Verification des lignes de figures retourne false si pas de cases
     public boolean verifVictoireJoueurFigure(){
+        int j = 0;
+        int i=0;
+        boolean condition = false;
+
+        //Test si il y a 5 cases identiques aligné verticalement
+        for ( i=0 ; i<5 ; i++){
+            condition = false;
+            while (j<5 && condition==false) {
+                if (j!=0){
+                    if (plateau[i][j].getFigure()!=plateau[i][j-1].getFigure()) {
+                        condition=true;
+                    }else if (j==5){
+                        return true;
+                    }
+                }
+            }
+        }
+
+        //Test si il y a 5 cases identiques aligné horizontalement
+        for ( j=0 ; j<5 ; j++){
+            condition = false;
+            while (i<5 && condition==false) {
+                if (i!=0){
+                    if (plateau[i][j].getFigure()!=plateau[i-1][j].getFigure()) {
+                        condition=true;
+                    }else if (i==5){
+                        return true;
+                    }
+                }
+            }
+        }
+
+        //Test si il y a 5 cases identiques aligné en diagonale de gauche à droite
+        i=0;
+        condition=false;
+        while (i<5 && condition==false) {
+            if (i!=0){
+                if (plateau[i][i].getFigure()!=plateau[i-1][i-1].getFigure()) {
+                    condition=true;
+                }else if (i==5){
+                    return true;
+                }
+            }
+        }
+
+        //Test si il y a 5 cases identiques aligné en diagonale de droite à gauche
+        j=5;
+        for ( i=0 ; i<5 ; i++){
+            condition = false;
+            while (j>0 && condition==false) {
+                if (j!=0){
+                    if (plateau[i][j].getFigure()!=plateau[i-1][j+1].getFigure()) {
+                        condition=true;
+                    }else if (j==5){
+                        return true;
+                    }
+                }
+            }
+        }
 
         return false;
     }
