@@ -15,15 +15,12 @@ public class Fenetre extends BasicGame {
 
         public Fenetre() {
                 super("Quixo");
-
         }
 
         @Override
         public void init(GameContainer container) throws SlickException {
                 this.container = container;
                 image = new Image("image/case_neutre.png");
-
-
         }
 
         @Override
