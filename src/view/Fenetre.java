@@ -2,10 +2,7 @@ package view;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
-import model.Plateau;
 
-import javax.swing.*;
-import java.awt.*;
 
 /**
  * Created by Roland on 13-Nov-15.
