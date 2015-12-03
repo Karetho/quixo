@@ -1,4 +1,7 @@
 package view;
+import org.lwjgl.LWJGLException;
+import org.lwjgl.opengl.Display;
+import org.lwjgl.opengl.DisplayMode;
 import model.Plateau;
 
 import javax.swing.*;
@@ -8,6 +11,23 @@ import java.awt.*;
  * Created by Roland on 13-Nov-15.
  */
 
+public class Fenetre{
+public Fenetre() {
+        try {
+        Display.setDisplayMode(new DisplayMode(800, 600));
+        Display.create();
+
+        while(!Display.isCloseRequested()) {
+        Display.update();
+        }
+
+        Display.destroy();
+        } catch(LWJGLException e) {
+        e.printStackTrace();
+        }
+        }
+}
+/*
 
 public class Fenetre extends JFrame{
     public JButtons tab_button_grille[][] = new JButtons[5][5];
@@ -87,3 +107,4 @@ public class Fenetre extends JFrame{
         setContentPane(total);
     }
 }
+*/
