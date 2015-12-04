@@ -2,16 +2,8 @@ package view;
 import org.newdawn.slick.*;
 import org.newdawn.slick.tiled.TiledMap;
 
-/**
- * Code sous licence GPLv3 (http://www.gnu.org/licenses/gpl.html)
- *
- * -Djava.library.path=target/natives
- *
- * @author <b>Shionn</b>, shionn@gmail.com <i>http://shionn.org</i><br>
- *         GCS d- s+:+ a C++ UL/M P L+ E--- W++ N K- w-- M+ t+ 5 X R+ !tv b+ D+ G- e+++ h+ r- y+
- */
 public class Fenetre extends BasicGame {
-        private Image image;
+        private Image caseNeutre;
         private Image bg;
 
         private float x = 0, y = 0;
@@ -26,8 +18,7 @@ public class Fenetre extends BasicGame {
         @Override
         public void init(GameContainer container) throws SlickException {
 
-                this.bg = new Image("image/Fond.map");
-                image = new Image("image/case_neutre.png");
+            caseNeutre = new Image("image/case_neutre.png");
 
         }
 
@@ -42,7 +33,7 @@ public class Fenetre extends BasicGame {
                                 if (j==0){
                                         continue;
                                 }
-                                image.draw(i, j);
+                            caseNeutre.draw(i, j);
                         }
                 }
         }
