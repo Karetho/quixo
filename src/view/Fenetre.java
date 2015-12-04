@@ -1,31 +1,48 @@
 package view;
-import org.lwjgl.LWJGLException;
-import org.lwjgl.opengl.Display;
-import org.lwjgl.opengl.DisplayMode;
-import model.Plateau;
-
-import javax.swing.*;
-import java.awt.*;
+import org.newdawn.slick.*;
 
 /**
- * Created by Roland on 13-Nov-15.
+ * Code sous licence GPLv3 (http://www.gnu.org/licenses/gpl.html)
+ *
+ * -Djava.library.path=target/natives
+ *
+ * @author <b>Shionn</b>, shionn@gmail.com <i>http://shionn.org</i><br>
+ *         GCS d- s+:+ a C++ UL/M P L+ E--- W++ N K- w-- M+ t+ 5 X R+ !tv b+ D+ G- e+++ h+ r- y+
  */
+public class Fenetre extends BasicGame {
+        private Image image;
+        private GameContainer container;
 
-public class Fenetre{
-public Fenetre() {
-        try {
-        Display.setDisplayMode(new DisplayMode(800, 600));
-        Display.create();
-
-        while(!Display.isCloseRequested()) {
-        Display.update();
+        public Fenetre() {
+                super("Quixo");
         }
 
-        Display.destroy();
-        } catch(LWJGLException e) {
-        e.printStackTrace();
+        @Override
+        public void init(GameContainer container) throws SlickException {
+                this.container = container;
+                image = new Image("image/case_neutre.png");
         }
+
+        @Override
+        public void render(GameContainer container, Graphics g) throws SlickException {
+                for (int i = 0; i < 700;i = i + 100){
+                        for (int j = 0; j<700 ; j = j + 100){
+                                image.draw(i,j);
+                        }
+                }
         }
+
+        @Override
+        public void update(GameContainer container, int delta) throws SlickException {
+        }
+
+        @Override
+        public void keyReleased(int key, char c) {
+                if (Input.KEY_ESCAPE == key) {
+                        container.exit();
+                }
+        }
+
 }
 /*
 
