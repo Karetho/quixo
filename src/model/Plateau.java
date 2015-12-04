@@ -23,7 +23,7 @@ public class Plateau {
         int i=0;
         boolean condition = false;
 
-        //Test si il y a 5 cases identiques aligné verticalement
+        //Test si il y a 5 cases identiques alignés verticalement
         for ( i=0 ; i<5 ; i++){
             condition = false;
             while (j<5 && condition==false) {
