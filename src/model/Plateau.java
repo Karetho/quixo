@@ -7,11 +7,14 @@ import java.util.List;
  */
 public class Plateau {
     private Cases[][] plateau;
+    private final int dimension_i = 5;
+    private final int dimension_j = 5;
+
 
     public Plateau(){
-        plateau = new Cases[5][5];
-        for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 5; j++) {
+        plateau = new Cases[dimension_i][dimension_j];
+        for (int i = 0; i < dimension_i; i++) {
+            for (int j = 0; j < dimension_j; j++) {
                 plateau[i][j] = new Cases();
             }
         }
@@ -124,6 +127,43 @@ public class Plateau {
             retour.add(new int[]{4,4});
         }
         return retour;
+    }
+
+    // décale les autres cases pour remplir l'espace vide
+    public void bougerPiece(int i,int j,int i1, int j1) {
+        List<int[]> retour;
+        int i_arrive,j_arrive;
+        if (plateau[i][j].getFigure() == 3) {
+            retour = choixPossible(i,j);
+            for(int k = 0;k < retour.size(); k++){
+                if(retour.get(k)[0] == i1 && retour.get(k)[1] == j1){
+                    i_arrive = retour.get(k)[0];
+                    j_arrive = retour.get(k)[1];
+                    for (int l = 0; l < i_arrive ; l++) {
+                        for (int m = 0; m < j_arrive; m++) {
+                            plateau[l][m] = plateau[l+1][m+1];
+                        }
+                    }
+                    plateau[i_arrive][j_arrive].setFigure(3);
+                }
+            }
+        }
+    }
+
+    public Cases getPlateauIJ(int i, int j) {
+        return plateau[i][j];
+    }
+
+    public void setPlateauIJ(int i, int j,int figure) {
+        plateau[i][j].setFigure(figure);
+    }
+
+    public int getDimension_i() {
+        return dimension_i;
+    }
+
+    public int getDimension_j() {
+        return dimension_j;
     }
 
 }
