@@ -5,7 +5,7 @@ import view.Fenetre;
 /**
  * Created by Roland on 26-Nov-15.
  */
-public class Main {
+public class main {
 
     public static void main(String[] args) throws SlickException {
         new AppGameContainer(new Fenetre(), 700, 700, false).start();
