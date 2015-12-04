@@ -3,7 +3,7 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.tiled.TiledMap;
 
 public class Fenetre extends BasicGame {
-        private Image caseNeutre;
+        private Image caseNeutre, flecheDroite, flecheGauche, flecheHaut, flecheBas;
         private Image bg;
 
         private float x = 0, y = 0;
@@ -17,9 +17,11 @@ public class Fenetre extends BasicGame {
 
         @Override
         public void init(GameContainer container) throws SlickException {
-
             caseNeutre = new Image("image/case_neutre.png");
-
+            flecheDroite = new Image("image/FlecheDroite.png");
+            flecheGauche = new Image("image/FlecheGauche.png");
+            flecheHaut = new Image("image/FlecheHaut.png");
+            flecheBas = new Image("image/FlecheBas.png");
         }
 
         @Override

@@ -22,7 +22,7 @@ public class Plateau {
         int i=0;
         boolean condition = false;
 
-        //Test si il y a 5 cases identiques aligné verticalement
+        //Test si il y a 5 cases identiques alignées verticalement
         for ( i=0 ; i<5 ; i++){
             condition = false;
             while (j<5 && condition==false) {
@@ -36,7 +36,7 @@ public class Plateau {
             }
         }
 
-        //Test si il y a 5 cases identiques aligné horizontalement
+        //Test si il y a 5 cases identiques alignées horizontalement
         for ( j=0 ; j<5 ; j++){
             condition = false;
             while (i<5 && condition==false) {
@@ -50,7 +50,7 @@ public class Plateau {
             }
         }
 
-        //Test si il y a 5 cases identiques aligné en diagonale de gauche à droite
+        //Test si il y a 5 cases identiques alignées en diagonale de gauche à droite
         i=0;
         condition=false;
         while (i<5 && condition==false) {
