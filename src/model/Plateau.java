@@ -17,7 +17,8 @@ public class Plateau {
         }
     }
     // Verification des lignes de figures retourne false si pas de cases
-    public boolean verifVictoireJoueurFigure(){
+    public int verifVictoireJoueurFigure(){
+        int result = 0;
         int j = 0;
         int i=0;
         boolean condition = false;
@@ -30,7 +31,8 @@ public class Plateau {
                     if (plateau[i][j].getFigure()!=plateau[i][j-1].getFigure()) {
                         condition=true;
                     }else if (j==5){
-                        return true;
+                        result=plateau[i][j].getFigure();
+                        return result;
                     }
                 }
             }
@@ -44,7 +46,8 @@ public class Plateau {
                     if (plateau[i][j].getFigure()!=plateau[i-1][j].getFigure()) {
                         condition=true;
                     }else if (i==5){
-                        return true;
+                        result=plateau[i][j].getFigure();
+                        return result;
                     }
                 }
             }
@@ -58,7 +61,8 @@ public class Plateau {
                 if (plateau[i][i].getFigure()!=plateau[i-1][i-1].getFigure()) {
                     condition=true;
                 }else if (i==5){
-                    return true;
+                    result=plateau[i][i].getFigure();
+                    return result;
                 }
             }
         }
@@ -72,13 +76,15 @@ public class Plateau {
                     if (plateau[i][j].getFigure()!=plateau[i-1][j+1].getFigure()) {
                         condition=true;
                     }else if (j==5){
-                        return true;
+                        result=plateau[i][j].getFigure();
+                        return result;
                     }
                 }
             }
         }
 
-        return false;
+        result=0;
+        return result;
     }
     // Affiche les différentes possibilités que le joueur a apres avoir pris un cube
     public List <int[]> choixPossible(int i, int j) {
