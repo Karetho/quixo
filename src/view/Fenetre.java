@@ -1,5 +1,6 @@
 package view;
 import org.newdawn.slick.*;
+import org.newdawn.slick.tiled.TiledMap;
 
 /**
  * Code sous licence GPLv3 (http://www.gnu.org/licenses/gpl.html)
@@ -11,7 +12,12 @@ import org.newdawn.slick.*;
  */
 public class Fenetre extends BasicGame {
         private Image image;
-        private GameContainer container;
+        private Image bg;
+
+        private float x = 0, y = 0;
+        private int direction = 0;
+        private boolean moving = false;
+        private Animation[] animations = new Animation[0];
 
         public Fenetre() {
                 super("Quixo");
@@ -19,28 +25,53 @@ public class Fenetre extends BasicGame {
 
         @Override
         public void init(GameContainer container) throws SlickException {
-                this.container = container;
+
+                this.bg = new Image("image/Fond.map");
                 image = new Image("image/case_neutre.png");
+
         }
 
         @Override
         public void render(GameContainer container, Graphics g) throws SlickException {
-                for (int i = 0; i < 700;i = i + 100){
-                        for (int j = 0; j<700 ; j = j + 100){
-                                image.draw(i,j);
+
+                for (int i = 0; i < 600;i = i + 100){
+                        for (int j = 0; j<600 ; j = j + 100){
+                                if (i==0){
+                                        continue;
+                                }
+                                if (j==0){
+                                        continue;
+                                }
+                                image.draw(i, j);
                         }
                 }
         }
 
         @Override
         public void update(GameContainer container, int delta) throws SlickException {
+                if (this.moving) {
+                        switch (this.direction) {
+                                case 0: this.y -= .1f * delta; break;
+                                case 1: this.x -= .1f * delta; break;
+                                case 2: this.y += .1f * delta; break;
+                                case 3: this.x += .1f * delta; break;
+                        }
+                }
+        }
+
+        @Override
+        public void keyPressed(int key, char c) {
+                switch (key) {
+                        case Input.KEY_UP:    this.direction = 0; this.moving = true; break;
+                        case Input.KEY_LEFT:  this.direction = 1; this.moving = true; break;
+                        case Input.KEY_DOWN:  this.direction = 2; this.moving = true; break;
+                        case Input.KEY_RIGHT: this.direction = 3; this.moving = true; break;
+                }
         }
 
         @Override
         public void keyReleased(int key, char c) {
-                if (Input.KEY_ESCAPE == key) {
-                        container.exit();
-                }
+                this.moving = false;
         }
 
 }
