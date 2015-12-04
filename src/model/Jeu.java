@@ -93,7 +93,7 @@ public class Jeu {
         }
     }
     //Faire une boucle de jeu (while cdt de victoire est false)
-    public int jouer() throws IOException {
+    public int jouer(){
         List<int[]> choixPossible = new LinkedList<>();
         Joueurs joueur1,joueur2;
         int verif,i,j,k,l;
@@ -105,7 +105,7 @@ public class Jeu {
         }
         //retourne un int pour savoir qui gagne
         verif = plateau.verifVictoireJoueurFigure();
-        /*
+        /*verifVictoireJoueurFigure
         * Boucle de jeu
         *   1) Le joueur qui commence prend un cube
         *   2) choixPossible vérifie toutes les possibilités qu'a le joueur
@@ -116,21 +116,21 @@ public class Jeu {
             //tour du joueur 1
             i = sc.nextInt();
             j = sc.nextInt();
-            joueur1.prendreCube(i,j,plateau);
+            //joueur1.prendreCube(i,j,plateau);
             //choixPossible = plateau.choixPossible(i,j);
             k = sc.nextInt();
             l = sc.nextInt();
             // faire un for qui check lequel des choix possible
-            plateau.bougerPiece(i,j,k,l);
+            //plateau.bougerPiece(i,j,k,l);
             joueur1.placerCube(k,l);
             //tour du joueur 2
             i = sc.nextInt();
             j = sc.nextInt();
-            joueur2.prendreCube(i,j,plateau);
+            //joueur2.prendreCube(i,j,plateau);
             //choixPossible = plateau.choixPossible(i,j);
             k = sc.nextInt();
             l = sc.nextInt();
-            plateau.bougerPiece(i,j,k,l);
+            //plateau.bougerPiece(i,j,k,l);
             joueur2.placerCube(k,l);
         }
         return verif;

@@ -3,71 +3,52 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.tiled.TiledMap;
 
 public class Fenetre extends BasicGame {
-        private Image caseNeutre, caseRond, caseCroix, flecheDroite, flecheGauche, flecheHaut, flecheBas;
-        private Image bg;
+    private Image caseNeutre, caseRond, caseCroix, flecheDroite, flecheGauche, flecheHaut, flecheBas;
+    private Image bouger;
 
-        private float x = 0, y = 0;
-        private int direction = 0;
-        private boolean moving = false;
-        private Animation[] animations = new Animation[0];
+    float x = 0, y = 0;
 
-        public Fenetre() {
-                super("Quixo");
-        }
 
-        @Override
-        public void init(GameContainer container) throws SlickException {
-            caseNeutre = new Image("image/caseNeutre.png");
-            caseRond = new Image("image/caseRond.png");
-            caseCroix = new Image("image/caseCroix.png");
-            flecheDroite = new Image("image/FlecheDroite.png");
-            flecheGauche = new Image("image/FlecheGauche.png");
-            flecheHaut = new Image("image/FlecheHaut.png");
-            flecheBas = new Image("image/FlecheBas.png");
-        }
+    public Fenetre() {
+        super("Quixo");
+    }
 
-        @Override
-        public void render(GameContainer container, Graphics g) throws SlickException {
+    @Override
+    public void init(GameContainer container) throws SlickException {
+        bouger = new Image("image/caseNeutre.png");
+        caseNeutre = new Image("image/caseNeutre.png");
+        caseRond = new Image("image/caseRond.png");
+        caseCroix = new Image("image/caseCroix.png");
+        flecheDroite = new Image("image/FlecheDroite.png");
+        flecheGauche = new Image("image/FlecheGauche.png");
+        flecheHaut = new Image("image/FlecheHaut.png");
+        flecheBas = new Image("image/FlecheBas.png");
+    }
 
-                for (int i = 0; i < 600;i = i + 100){
-                        for (int j = 0; j<600 ; j = j + 100){
-                                if (i==0){
-                                        continue;
-                                }
-                                if (j==0){
-                                        continue;
-                                }
-                            caseCroix.draw(i, j);
-                        }
+    @Override
+    public void render(GameContainer container, Graphics g) throws SlickException {
+
+        for (int i = 0; i < 600;i = i + 100){
+            for (int j = 0; j<600 ; j = j + 100){
+                if (i==0){
+                    continue;
                 }
-        }
-
-        @Override
-        public void update(GameContainer container, int delta) throws SlickException {
-                if (this.moving) {
-                        switch (this.direction) {
-                                case 0: this.y -= .1f * delta; break;
-                                case 1: this.x -= .1f * delta; break;
-                                case 2: this.y += .1f * delta; break;
-                                case 3: this.x += .1f * delta; break;
-                        }
+                if (j==0){
+                    continue;
                 }
+                caseNeutre.draw(i, j);
+            }
         }
+        bouger.draw(x,y);
 
-        @Override
-        public void keyPressed(int key, char c) {
-                switch (key) {
-                        case Input.KEY_UP:    this.direction = 0; this.moving = true; break;
-                        case Input.KEY_LEFT:  this.direction = 1; this.moving = true; break;
-                        case Input.KEY_DOWN:  this.direction = 2; this.moving = true; break;
-                        case Input.KEY_RIGHT: this.direction = 3; this.moving = true; break;
-                }
-        }
+    }
 
-        @Override
-        public void keyReleased(int key, char c) {
-                this.moving = false;
-        }
+    @Override
+    public void update(GameContainer container, int delta) throws SlickException {
+        x+=0.11;
+    }
+
+
 
 }
 /*
