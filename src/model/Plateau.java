@@ -22,7 +22,7 @@ public class Plateau {
         int j = 0;
         int i=0;
         boolean condition = false;
-        
+
         //Test si il y a 5 cases identiques alignées verticalement
         for ( i=0 ; i<5 ; i++){
             condition = false;
