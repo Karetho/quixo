@@ -28,14 +28,8 @@ public class Fenetre extends BasicGame {
     @Override
     public void render(GameContainer container, Graphics g) throws SlickException {
 
-        for (int i = 0; i < 600;i = i + 100){
-            for (int j = 0; j<600 ; j = j + 100){
-                if (i==0){
-                    continue;
-                }
-                if (j==0){
-                    continue;
-                }
+        for (int i = 100; i < 600;i = i + 100){
+            for (int j = 100; j<600 ; j = j + 100){
                 caseNeutre.draw(i, j);
             }
         }
