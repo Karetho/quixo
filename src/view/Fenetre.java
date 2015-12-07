@@ -15,7 +15,7 @@ public class Fenetre extends BasicGame {
 
     @Override
     public void init(GameContainer container) throws SlickException {
-        bouger = new Image("image/caseNeutre.png");
+        bouger = new Image("image/Troll.jpg");
         caseNeutre = new Image("image/caseNeutre.png");
         caseRond = new Image("image/caseRond.png");
         caseCroix = new Image("image/caseCroix.png");
@@ -44,16 +44,17 @@ public class Fenetre extends BasicGame {
     public void update(GameContainer container, int delta) throws SlickException {
 
     if (x>=0&&y==0){
-        x+=10;
+        x+=0.50;
+
     }
         if (x==600&& y>=0){
-            y+=10;
+            y+=0.50;
         }
         if (x>=0&& y==600){
-            x-=10;
+            x-=0.50;
         }
         if (x==0&& y<=600){
-            y-=10;
+            y-=0.50;
         }
 
         //System.out.println("x = " + x);
