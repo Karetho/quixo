@@ -33,13 +33,30 @@ public class Fenetre extends BasicGame {
                 caseNeutre.draw(i, j);
             }
         }
-        bouger.draw(x,y);
+
+
+
+       bouger.draw(x,y);
 
     }
 
     @Override
     public void update(GameContainer container, int delta) throws SlickException {
-        x+=0.11;
+
+    if (x>=0&&y==0){
+        x+=10;
+    }
+        if (x==600&& y>=0){
+            y+=10;
+        }
+        if (x>=0&& y==600){
+            x-=10;
+        }
+        if (x==0&& y<=600){
+            y-=10;
+        }
+
+        //System.out.println("x = " + x);
     }
 
 
