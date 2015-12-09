@@ -75,7 +75,7 @@ public class Jeu {
         joueurs = choixJoueurCommence(j1,j2);
         System.out.println(joueurs.getNomJoueur() + " vous commencez.");
         System.out.println("Veuillez choisir votre symbole : \npour rond entrer 1 \npour croix entrer 2.");
-        figure = sc.nextInt();
+        figure = 1;///*sc.nextInt()*/;
         if (figure < 1 || figure > 2) {
             System.out.println("Vous n'avez pas entré le bon chiffre !");
         }
@@ -114,20 +114,28 @@ public class Jeu {
          */
         while(verif == 0){
             //tour du joueur 1
-            i = sc.nextInt();
-            j = sc.nextInt();
+            System.out.println("entrer un entier pour i :");
+            i =3; /*sc.nextInt()*/;
+            System.out.println("entrer un entier pour j :");
+            j = 4;/*sc.nextInt()*/;
             casestemp = joueur1.prendreCube(i,j,plateau);
-            k = sc.nextInt();
-            l = sc.nextInt();
+            System.out.println("entrer un entier pour k :");
+            k = 2;/*sc.nextInt()*/;
+            System.out.println("entrer un entier pour l :");
+            l =1; /*sc.nextInt()*/;
             // faire un for qui check lequel des choix possible
             plateau.bougerPiece(i,j,k,l);
             joueur1.placerCube(k,l,casestemp,plateau);
             //tour du joueur 2
-            i = sc.nextInt();
-            j = sc.nextInt();
+            System.out.println("entrer un entier pour i :");
+            i = 1;/*sc.nextInt()*/;
+            System.out.println("entrer un entier pour j :");
+            j = 4;/*sc.nextInt()*/;
             casestemp = joueur2.prendreCube(i,j,plateau);
-            k = sc.nextInt();
-            l = sc.nextInt();
+            System.out.println("entrer un entier pour k :");
+            k = 3;/*sc.nextInt()*/;
+            System.out.println("entrer un entier pour l :");
+            l =1; /*sc.nextInt()*/;
             plateau.bougerPiece(i,j,k,l);
             joueur2.placerCube(k,l,casestemp,plateau);
         }
@@ -140,7 +148,19 @@ public class Jeu {
 
     public static void main(String[] args) {
         Jeu jeu = new Jeu(new Humains("Bob"),new Humains("Alice"));
-
+        for (int i = 0; i < jeu.plateau.getDimension_i(); i++) {
+            for (int j = 0; j < jeu.plateau.getDimension_j(); j++) {
+                System.out.print(jeu.plateau.getPlateauIJ(i, j).getFigure() + "|");
+            }
+            System.out.println("");
+        }
+        System.out.println("_____________________________");
+        jeu.jouer();
+        for (int i = 0; i < jeu.plateau.getDimension_i(); i++) {
+            for (int j = 0; j < jeu.plateau.getDimension_j(); j++) {
+                System.out.print(jeu.plateau.getPlateauIJ(i,j).getFigure() + "|");
+            }
+        }
     }
 }
 
