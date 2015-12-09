@@ -94,7 +94,7 @@ public class Jeu {
     }
     //Faire une boucle de jeu (while cdt de victoire est false)
     public int jouer(){
-        List<int[]> choixPossible = new LinkedList<>();
+        Cases casestemp;
         Joueurs joueur1,joueur2;
         int verif,i,j,k,l;
         joueur1 = choixFigureJoueur(j1,j2);
@@ -116,22 +116,20 @@ public class Jeu {
             //tour du joueur 1
             i = sc.nextInt();
             j = sc.nextInt();
-            //joueur1.prendreCube(i,j,plateau);
-            //choixPossible = plateau.choixPossible(i,j);
+            casestemp = joueur1.prendreCube(i,j,plateau);
             k = sc.nextInt();
             l = sc.nextInt();
             // faire un for qui check lequel des choix possible
-            //plateau.bougerPiece(i,j,k,l);
-            joueur1.placerCube(k,l);
+            plateau.bougerPiece(i,j,k,l);
+            joueur1.placerCube(k,l,casestemp,plateau);
             //tour du joueur 2
             i = sc.nextInt();
             j = sc.nextInt();
-            //joueur2.prendreCube(i,j,plateau);
-            //choixPossible = plateau.choixPossible(i,j);
+            casestemp = joueur2.prendreCube(i,j,plateau);
             k = sc.nextInt();
             l = sc.nextInt();
-            //plateau.bougerPiece(i,j,k,l);
-            joueur2.placerCube(k,l);
+            plateau.bougerPiece(i,j,k,l);
+            joueur2.placerCube(k,l,casestemp,plateau);
         }
         return verif;
     }
@@ -139,4 +137,11 @@ public class Jeu {
     public void setManche(int manche) {
         this.nbManches = manche;
     }
+
+    public static void main(String[] args) {
+        Jeu jeu = new Jeu(new Humains("Bob"),new Humains("Alice"));
+
+    }
 }
+
+

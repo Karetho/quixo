@@ -30,8 +30,8 @@ public class Humains extends Joueurs {
     }
     // place une case sur une coordonées (i,j)
     @Override
-    public void placerCube(int i1, int j1) {
-
+    public void placerCube(int i1, int j1, Cases cases,Plateau plateau) {
+        plateau.getPlateauIJ(i1,j1).setFigure(cases.getFigure());
     }
 
     public void setFigure(int figure){this.figure =figure;}

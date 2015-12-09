@@ -23,7 +23,7 @@ public abstract class Joueurs {
 
     public  abstract Cases prendreCube(int i, int j, Plateau plateau);
 
-    public  abstract void placerCube(int i, int j);
+    public  abstract void placerCube(int i, int j,Cases cases, Plateau plateau);
 
     public String getNomJoueur() { return nomJoueur;}
 

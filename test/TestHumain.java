@@ -11,11 +11,13 @@ import org.junit.Test;
 public class TestHumain {
     private Humains humains;
     private Plateau plateau;
+    private Cases cases;
 
     @Before
     public void setUp(){
         humains = new Humains();
         plateau = new Plateau();
+        cases = new Cases();
     }
 
     // test si le joueur a gagner
@@ -24,7 +26,6 @@ public class TestHumain {
     public void TestprendreCube(){
         //test si la cases retournée par la méthode posséde les mêmes attributs que la case supprimée
         setUp();
-        Cases cases;
         int i = 3; int j = 3;
         plateau.getPlateauIJ(i,j).setFigure(0);
         cases = humains.prendreCube(i,j,plateau);
@@ -36,6 +37,11 @@ public class TestHumain {
 
     @Test
     public void TestplacerCube() {
-        Humains humains = new Humains();
+        //test si la case placée par la méthode posséde les mêmes attributs que la case prise
+        setUp();
+        int i =4; int j = 2;
+        cases.setFigure(2);
+        humains.placerCube(i,j,cases,plateau);
+        Assert.assertEquals(2,plateau.getPlateauIJ(i,j).getFigure());
     }
 }
