@@ -1,5 +1,8 @@
 package model.Joueurs;
 
+import model.Cases;
+import model.Plateau;
+
 /**
  * Created by Skygix on 12/11/2015.
  */
@@ -18,11 +21,9 @@ public abstract class Joueurs {
         this.nomJoueur = nomJoueur;
     }
 
-    public  abstract void prendreCube(int i, int j);
+    public  abstract Cases prendreCube(int i, int j, Plateau plateau);
 
-    public  abstract void placerCube(int i, int j);
-
-    public  abstract void bougerPiece(int i, int j);
+    public  abstract void placerCube(int i, int j,Cases cases, Plateau plateau);
 
     public String getNomJoueur() { return nomJoueur;}
 

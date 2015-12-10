@@ -9,6 +9,7 @@ public class Cases  {
     private final int NO_FIGURE = 0;
     private final int FIGURE_1 = 1;
     private final int FIGURE_2 = 2;
+    private final int SUPPR_FIGURE = 3; //vide
 
     public Cases(){
         figure = NO_FIGURE;
