@@ -1,4 +1,5 @@
 
+import model.Cases;
 import model.Joueurs.Humains.Humains;
 import model.Plateau;
 import org.junit.*;
@@ -24,9 +25,20 @@ public class TestPlateau {
     @Test
     public void testVerifGagneJoueurFigure(){
         setUp();
-        Mockito.mock(Plateau.class);
+        Plateau plateau = new Plateau();
+        Cases tab_plateau[][]=plateau.getPlateau();
+
+        tab_plateau[4][0].setFigure(1);
+        tab_plateau[4][1].setFigure(1);
+        tab_plateau[4][2].setFigure(1);
+        tab_plateau[4][3].setFigure(1);
+        tab_plateau[4][4].setFigure(1);
+        int result=plateau.verifVictoireJoueurFigure();
+        Assert.assertEquals(1,result);
+
 
     }
+
     //Teste le décalement des cubes sur la ligne
     @Test
     public void testDecaleCases(){

@@ -1,4 +1,6 @@
 package model;
+import org.lwjgl.Sys;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -20,68 +22,74 @@ public class Plateau {
     public int verifVictoireJoueurFigure(){
         int result = 0;
         int j = 0;
-        int i=0;
+        int i;
         boolean condition = false;
 
         //Test si il y a 5 cases identiques alignées verticalement
         for ( i=0 ; i<5 ; i++){
             condition = false;
-            while (j<5 && condition==false) {
-                if (j!=0){
-                    if (plateau[i][j].getFigure()!=plateau[i][j-1].getFigure()) {
-                        condition=true;
-                    }else if (j==5){
-                        result=plateau[i][j].getFigure();
-                        return result;
-                    }
+            j=1;
+            while (j<5 && !condition) {
+                if (plateau[i][j].getFigure() != plateau[i][j-1].getFigure() || plateau[i][j].getFigure()==0) {
+                    condition = true;
                 }
+                else if (j == 4 && plateau[i][j].getFigure() == plateau[i][j-1].getFigure()) {
+                    result = plateau[i][j].getFigure();
+                    return result;
+                }
+
+                j++;
             }
         }
+
 
         //Test si il y a 5 cases identiques alignées horizontalement
         for ( j=0 ; j<5 ; j++){
             condition = false;
-            while (i<5 && condition==false) {
-                if (i!=0){
-                    if (plateau[i][j].getFigure()!=plateau[i-1][j].getFigure()) {
-                        condition=true;
-                    }else if (i==5){
-                        result=plateau[i][j].getFigure();
-                        return result;
-                    }
+            i=1;
+            while (i<5 && !condition) {
+                if (plateau[i][j].getFigure() != plateau[i-1][j].getFigure() || plateau[i][j].getFigure()==0) {
+                    condition = true;
+                }else if (i == 4 && plateau[i][j].getFigure() == plateau[i-1][j].getFigure()) {
+                    result = plateau[i][j].getFigure();
+                    return result;
                 }
+                i++;
             }
         }
 
+
         //Test si il y a 5 cases identiques alignées en diagonale de gauche à droite
-        i=0;
+        i=1;
         condition=false;
-        while (i<5 && condition==false) {
-            if (i!=0){
-                if (plateau[i][i].getFigure()!=plateau[i-1][i-1].getFigure()) {
-                    condition=true;
-                }else if (i==5){
-                    result=plateau[i][i].getFigure();
-                    return result;
-                }
+        while (i<5 && !condition) {
+
+            if (plateau[i][i].getFigure()!=plateau[i-1][i-1].getFigure()) {
+                condition=true;
+            }else if (i==4){
+                result=plateau[i][i].getFigure();
+                return result;
             }
+            i++;
+
         }
 
         //Test si il y a 5 cases identiques aligné en diagonale de droite à gauche
-        j=5;
-        for ( i=0 ; i<5 ; i++){
-            condition = false;
-            while (j>0 && condition==false) {
-                if (j!=0){
-                    if (plateau[i][j].getFigure()!=plateau[i-1][j+1].getFigure()) {
-                        condition=true;
-                    }else if (j==5){
-                        result=plateau[i][j].getFigure();
-                        return result;
-                    }
-                }
+        i=4;
+        condition=false;
+        while (i>0 && !condition) {
+
+            if (plateau[i][i].getFigure()!=plateau[i-1][i-1].getFigure()) {
+                condition=true;
             }
+            if (i==1 && plateau[i][i].getFigure()==plateau[i-1][i-1].getFigure()){
+                result=plateau[i][i].getFigure();
+                return result;
+            }
+            i--;
+
         }
+
 
         result=0;
         return result;
@@ -125,5 +133,7 @@ public class Plateau {
         }
         return retour;
     }
+
+    public Cases[][] getPlateau() { return plateau;}
 
 }
