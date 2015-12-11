@@ -137,7 +137,12 @@ public class Plateau {
         return retour;
     }
 
-    // décale les autres cases pour remplir l'espace vide
+    /* décale les autres cases pour remplir l'espace vide
+     i => i arrivée i
+     j => arrivée j
+     i1 => départ i
+     j1 => départ j
+      */
     public void bougerPiece(int i,int j,int i1, int j1) {
         List<int[]> retour;
         int i_arrive,j_arrive;
@@ -157,7 +162,7 @@ public class Plateau {
             }
         }
     }
-    
+
     public Cases[][] getPlateau() {
         return plateau;
     }

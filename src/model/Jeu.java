@@ -2,6 +2,7 @@ package model;
 
 import model.Joueurs.Humains.Humains;
 import model.Joueurs.Joueurs;
+import org.lwjgl.Sys;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -74,14 +75,16 @@ public class Jeu {
         int figure;
         joueurs = choixJoueurCommence(j1,j2);
         System.out.println(joueurs.getNomJoueur() + " vous commencez.");
-        System.out.println("Veuillez choisir votre symbole : \npour rond entrer 1 \npour croix entrer 2.");
-        figure = 1;///*sc.nextInt()*/;
-        if (figure < 1 || figure > 2) {
+        System.out.println("Veuillez choisir votre symbole : \npour rond entrez 1 \npour croix entrez 2.");
+        figure = sc.nextInt();
+        while (figure < 1 || figure > 2) {
             System.out.println("Vous n'avez pas entré le bon chiffre !");
+            System.out.println("Veuillez choisir votre symbole : \npour rond entrer 1 \npour croix entrer 2.");
+            figure = sc.nextInt();
         }
-        else {
-            setFigureJoueur(joueurs,figure);
-        }
+
+        setFigureJoueur(joueurs,figure);
+
         return joueurs;
     }
 
@@ -93,10 +96,10 @@ public class Jeu {
         }
     }
     //Faire une boucle de jeu (while cdt de victoire est false)
-    public int jouer(){
+    public void jouer(){
         Cases casestemp;
         Joueurs joueur1,joueur2;
-        int verif,i,j,k,l;
+        int verif,i,j,k,l,peutJouer;
         joueur1 = choixFigureJoueur(j1,j2);
         if(joueur1 == j1){
             joueur2 = j2;
@@ -114,32 +117,97 @@ public class Jeu {
          */
         while(verif == 0){
             //tour du joueur 1
-            System.out.println("entrer un entier pour i :");
-            i =3; /*sc.nextInt()*/;
-            System.out.println("entrer un entier pour j :");
-            j = 4;/*sc.nextInt()*/;
-            casestemp = joueur1.prendreCube(i,j,plateau);
-            System.out.println("entrer un entier pour k :");
-            k = 2;/*sc.nextInt()*/;
-            System.out.println("entrer un entier pour l :");
-            l =1; /*sc.nextInt()*/;
+            System.out.println("Au tour du joueur 1");
+            System.out.println("entrer coordonnée x du premier cube :");
+            i =sc.nextInt();
+            System.out.println("entrer coordonnée y du premier cube :");
+            j = sc.nextInt();
+            casestemp = joueur1.verifCube(i,j,plateau);
+            while (casestemp == null) {
+                System.out.println("entrer un entier pour i :");
+                i = sc.nextInt();
+                System.out.println("entrer un entier pour j :");
+                j = sc.nextInt();
+                casestemp = joueur1.verifCube(i,j,plateau);
+            }
+            System.out.println("casestemp : "+casestemp.getFigure());
+            System.out.println("casetemp :" +casestemp.getFigure());
+            System.out.println("entrer coordonnée x du deuxième cube :");
+            k = sc.nextInt();
+            System.out.println("entrer coordonnée y du deuxième cube :");
+            l =sc.nextInt();
             // faire un for qui check lequel des choix possible
             plateau.bougerPiece(i,j,k,l);
-            joueur1.placerCube(k,l,casestemp,plateau);
+            peutJouer = joueur1.placerCube(k,l,casestemp,plateau,joueur2);
+            while (peutJouer == 0) {
+                System.out.println("entrer coordonnée x du deuxième cube :");
+                k = sc.nextInt();
+                System.out.println("entrer coordonnée y du deuxième cube :");
+                l =sc.nextInt();
+                // faire un for qui check lequel des choix possible
+                plateau.bougerPiece(i,j,k,l);
+                peutJouer = joueur1.placerCube(k,l,casestemp,plateau,joueur2);
+            }
+            System.out.println("plateau :"+plateau.getPlateauIJ(k,l).getFigure());
+
+            for ( int m = 0; m < plateau.getDimension_i(); m++) {
+                for (int y = 0; y < plateau.getDimension_j(); y++) {
+                    System.out.print(plateau.getPlateauIJ(m,y).getFigure() + "|");
+                }
+                System.out.println("");
+            }
+            verif = plateau.verifVictoireJoueurFigure();
+            if (verif == 1) {
+                System.out.println(joueur1.getNomJoueur() + " a Gagné !!!!!!!!!!!");
+                return;
+            }
+            System.out.println("_____________________________");
+            System.out.println("Au tour du joueur 2");
             //tour du joueur 2
             System.out.println("entrer un entier pour i :");
-            i = 1;/*sc.nextInt()*/;
+            i = sc.nextInt();
             System.out.println("entrer un entier pour j :");
-            j = 4;/*sc.nextInt()*/;
-            casestemp = joueur2.prendreCube(i,j,plateau);
+            j = sc.nextInt();
+            casestemp = joueur2.verifCube(i,j,plateau);
+            while (casestemp == null) {
+                System.out.println("entrer un entier pour i :");
+                i = sc.nextInt();
+                System.out.println("entrer un entier pour j :");
+                j = sc.nextInt();
+                casestemp = joueur2.verifCube(i,j,plateau);
+            }
+            System.out.println("casetemp :" +casestemp.getFigure());
             System.out.println("entrer un entier pour k :");
-            k = 3;/*sc.nextInt()*/;
+            k = sc.nextInt();
             System.out.println("entrer un entier pour l :");
-            l =1; /*sc.nextInt()*/;
+            l =sc.nextInt();
             plateau.bougerPiece(i,j,k,l);
-            joueur2.placerCube(k,l,casestemp,plateau);
+            peutJouer = joueur2.placerCube(k,l,casestemp,plateau,joueur1);
+            while (peutJouer == 0) {
+                System.out.println("entrer un entier pour k :");
+                k = sc.nextInt();
+                System.out.println("entrer un entier pour l :");
+                l =sc.nextInt();
+                plateau.bougerPiece(i,j,k,l);
+                peutJouer = joueur2.placerCube(k,l,casestemp,plateau,joueur1);
+            }
+
+            for ( int m = 0; m < plateau.getDimension_i(); m++) {
+                for (int y = 0; y < plateau.getDimension_j(); y++) {
+                    System.out.print(plateau.getPlateauIJ(m,y).getFigure() + "|");
+                }
+                System.out.println("");
+            }
+            System.out.println("_____________________________");
+            System.out.println("verif = " + verif);
+            verif = plateau.verifVictoireJoueurFigure();
         }
-        return verif;
+        if (verif == 1) {
+            System.out.println(joueur1.getNomJoueur() + " a Gagné !!!!!!!!!!!");
+        }
+        else if (verif == 2) {
+            System.out.println(joueur2.getNomJoueur() + " a Gagné !!!!!!!!!!!!");
+        }
     }
 
     public void setManche(int manche) {
@@ -147,7 +215,7 @@ public class Jeu {
     }
 
     public static void main(String[] args) {
-        Jeu jeu = new Jeu(new Humains("Bob"),new Humains("Alice"));
+        Jeu jeu = new Jeu(new Humains("Adam"),new Humains("Clement"));
         for (int i = 0; i < jeu.plateau.getDimension_i(); i++) {
             for (int j = 0; j < jeu.plateau.getDimension_j(); j++) {
                 System.out.print(jeu.plateau.getPlateauIJ(i, j).getFigure() + "|");
@@ -156,11 +224,6 @@ public class Jeu {
         }
         System.out.println("_____________________________");
         jeu.jouer();
-        for (int i = 0; i < jeu.plateau.getDimension_i(); i++) {
-            for (int j = 0; j < jeu.plateau.getDimension_j(); j++) {
-                System.out.print(jeu.plateau.getPlateauIJ(i,j).getFigure() + "|");
-            }
-        }
     }
 }
 

@@ -22,8 +22,8 @@ public class TestHumain {
 
     // test si le joueur a gagner
 
-    @Test
-    public void TestprendreCube(){
+    //@Test
+    /*public void TestprendreCube(){
         //test si la cases retournée par la méthode posséde les mêmes attributs que la case supprimée
         setUp();
         int i = 3; int j = 3;
@@ -34,8 +34,8 @@ public class TestHumain {
 
 
     }
-
-    @Test
+*/
+   /* @Test
     public void TestplacerCube() {
         //test si la case placée par la méthode posséde les mêmes attributs que la case prise
         setUp();
@@ -43,5 +43,5 @@ public class TestHumain {
         cases.setFigure(2);
         humains.placerCube(i,j,cases,plateau);
         Assert.assertEquals(2,plateau.getPlateauIJ(i,j).getFigure());
-    }
+    }*/
 }

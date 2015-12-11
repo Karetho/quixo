@@ -1,8 +1,6 @@
-<<<<<<< HEAD
+import model.Joueurs.Humains.Humains;
 
 import model.Cases;
-=======
->>>>>>> origin/master
 import model.Joueurs.Humains.Humains;
 import model.Plateau;
 import org.junit.Assert;
