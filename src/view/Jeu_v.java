@@ -17,7 +17,7 @@ public class Jeu_v extends BasicGameState {
     private ControlPlateau controlPlateau;
     private Jeu jeu;
     private Plateau plateau;
-    private Image caseNeutre, caseRond, caseCroix, flecheDroite, flecheGauche, flecheHaut, flecheBas;
+    private Image caseNeutre, caseRond, caseCroix, flecheDroite, flecheGauche, flecheHaut, flecheBas, background;
     private Image bouger;
     float x = 0;
     float y = 0;
@@ -42,6 +42,7 @@ public class Jeu_v extends BasicGameState {
         flecheDroite = new Image("image/FlecheDroite.png");
         flecheGauche = new Image("image/FlecheGauche.png");
         flecheHaut = new Image("image/FlecheHaut.png");
+        background = new Image("image/Fond.jpg");
         flecheBas = new Image("image/FlecheBas.png");
         /*jeu.choixFigureJoueur(jeu.getJ1(),jeu.getJ2());
         System.out.println("figure du joueur1 = " + jeu.getJ1().getFigure());
@@ -52,6 +53,7 @@ public class Jeu_v extends BasicGameState {
 
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
+        background.draw(0,0,gameContainer.getHeight(),gameContainer.getWidth());
         for (int i = 0; i < 500;i = i + 100){
             for (int j = 0; j<500 ; j = j + 100){
                 if(plateau.getPlateauIJ(i/100,j/100).getFigure() == 0){

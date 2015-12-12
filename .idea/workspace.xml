@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="027c75bc-bcc2-4300-8a58-3133babda51a" name="Default" comment="Appuyez sur la touche echap pour">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/view/Jeu_v.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/view/Menu_v.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/quixo/main.class" afterPath="$PROJECT_DIR$/out/production/quixo/main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/quixo/view/Fenetre.class" afterPath="$PROJECT_DIR$/out/production/quixo/view/Fenetre.class" />
+    <list default="true" id="027c75bc-bcc2-4300-8a58-3133babda51a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/ControlPlateau.java" afterPath="$PROJECT_DIR$/src/controller/ControlPlateau.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.java" afterPath="$PROJECT_DIR$/src/main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/Fenetre.java" afterPath="$PROJECT_DIR$/src/view/Fenetre.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/Jeu_v.java" afterPath="$PROJECT_DIR$/src/view/Jeu_v.java" />
     </list>
     <ignored path="quixo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,10 +51,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Menu_v.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Menu_v.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/Menu_v.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33497536">
+            <state vertical-scroll-proportion="0.0">
               <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
               <folding>
                 <element signature="e#479#480#0" expanded="true" />
@@ -70,15 +64,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Jeu_v.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Jeu_v.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/view/Jeu_v.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="61" column="17" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.4187192">
+              <caret line="55" column="80" selection-start-line="55" selection-start-column="80" selection-end-line="55" selection-end-column="80" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#889#890#0" expanded="true" />
-                <element signature="e#914#915#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -171,8 +163,8 @@
         <option value="$PROJECT_DIR$/src/main.java" />
         <option value="$PROJECT_DIR$/src/controller/ControlPlateau.java" />
         <option value="$PROJECT_DIR$/src/view/Fenetre.java" />
-        <option value="$PROJECT_DIR$/src/view/Jeu_v.java" />
         <option value="$PROJECT_DIR$/src/view/Menu_v.java" />
+        <option value="$PROJECT_DIR$/src/view/Jeu_v.java" />
       </list>
     </option>
   </component>
@@ -931,7 +923,7 @@
       <workItem from="1449837536861" duration="8069000" />
       <workItem from="1449845842351" duration="736000" />
       <workItem from="1449905989986" duration="12758000" />
-      <workItem from="1449927963795" duration="1485000" />
+      <workItem from="1449927963795" duration="1731000" />
     </task>
     <task id="LOCAL-00004" summary="TRANSALTION">
       <created>1449477048060</created>
@@ -951,7 +943,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449911578648</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Appuyez sur la touche echap pour voir le jeu">
+      <created>1449929480881</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1449929480881</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -963,7 +961,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30834000" />
+    <option name="totallyTimeSpent" value="31080000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1009,7 +1007,8 @@
     <MESSAGE value="TRANSALTION" />
     <MESSAGE value="On a enfin une vue qui marche (on peut mettre une figure sur une case)" />
     <MESSAGE value="On peut mettre une figure en fonction de la figure d'un joueur&#10;Par contre il faut choisir la figure du joueur sur le terminal &#10;Pas encore d'interface graphique pour choisir la figure" />
-    <option name="LAST_COMMIT_MESSAGE" value="On peut mettre une figure en fonction de la figure d'un joueur&#10;Par contre il faut choisir la figure du joueur sur le terminal &#10;Pas encore d'interface graphique pour choisir la figure" />
+    <MESSAGE value="Appuyez sur la touche echap pour voir le jeu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Appuyez sur la touche echap pour voir le jeu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1067,6 +1066,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#394#395#0" expanded="false" />
+            <element signature="e#436#437#0" expanded="false" />
+            <element signature="e#790#791#0" expanded="false" />
+            <element signature="e#826#827#0" expanded="false" />
+            <element signature="e#980#981#0" expanded="false" />
+            <element signature="e#1009#1010#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1122,6 +1130,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#394#395#0" expanded="false" />
+            <element signature="e#436#437#0" expanded="false" />
+            <element signature="e#790#791#0" expanded="false" />
+            <element signature="e#826#827#0" expanded="false" />
+            <element signature="e#980#981#0" expanded="false" />
+            <element signature="e#1009#1010#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1372,6 +1389,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#394#395#0" expanded="false" />
+            <element signature="e#436#437#0" expanded="false" />
+            <element signature="e#790#791#0" expanded="false" />
+            <element signature="e#826#827#0" expanded="false" />
+            <element signature="e#980#981#0" expanded="false" />
+            <element signature="e#1009#1010#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1453,25 +1479,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/Jeu_v.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="17" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#889#890#0" expanded="true" />
-            <element signature="e#914#915#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/Menu_v.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33497536">
+        <state vertical-scroll-proportion="0.0">
           <caret line="39" column="36" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
           <folding>
             <element signature="e#479#480#0" expanded="true" />
             <element signature="e#509#510#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/Jeu_v.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4187192">
+          <caret line="55" column="80" selection-start-line="55" selection-start-column="80" selection-end-line="55" selection-end-column="80" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
