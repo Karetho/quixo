@@ -1,7 +1,6 @@
 package model.Joueurs.Humains;
 
 
-import controller.Joueur;
 import model.Cases;
 import model.Joueurs.Joueurs;
 import model.Plateau;

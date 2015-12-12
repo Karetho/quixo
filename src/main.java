@@ -1,3 +1,7 @@
+import controller.ControlPlateau;
+import model.Jeu;
+import model.Joueurs.Humains.Humains;
+import model.Plateau;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.SlickException;
 import view.Fenetre;
@@ -8,6 +12,11 @@ import view.Fenetre;
 public class main {
 
     public static void main(String[] args) throws SlickException {
-        new AppGameContainer(new Fenetre(), 700, 700, false).start();
+        Humains h1 = new Humains("Joueur 1");
+        Humains h2 = new Humains("Joueur 2");
+        Plateau modelPlateau = new Plateau();
+        Jeu jeu = new Jeu(h1,h2);
+        ControlPlateau plateau = new ControlPlateau(modelPlateau, jeu);
+        new AppGameContainer(new Fenetre(plateau,jeu,modelPlateau), 700, 700, false).start();
     }
 }
