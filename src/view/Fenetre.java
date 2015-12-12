@@ -24,7 +24,6 @@ public class Fenetre extends BasicGame {
 
     @Override
     public void init(GameContainer container) throws SlickException {
-
         bouger = new Image("image/Troll.jpg");
         caseNeutre = new Image("image/caseNeutre.png");
         caseRond = new Image("image/caseRond.png");
@@ -33,6 +32,9 @@ public class Fenetre extends BasicGame {
         flecheGauche = new Image("image/FlecheGauche.png");
         flecheHaut = new Image("image/FlecheHaut.png");
         flecheBas = new Image("image/FlecheBas.png");
+        jeu.choixFigureJoueur(jeu.getJ1(),jeu.getJ2());
+        System.out.println("figure du joueur1 = " + jeu.getJ1().getFigure());
+        System.out.println("figure du joueur2 = " + jeu.getJ2().getFigure());
         Input input = new Input(Input.MOUSE_LEFT_BUTTON);
         setInput(input);
 
@@ -51,7 +53,6 @@ public class Fenetre extends BasicGame {
                 else if(plateau.getPlateauIJ(i/100,j/100).getFigure() == 2){
                     g.drawImage(caseCroix,i+100,j+100);
                 }
-                //caseNeutre.draw(i, j);
             }
         }
         caseNeutre.draw(x,y);

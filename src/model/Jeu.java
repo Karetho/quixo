@@ -225,6 +225,14 @@ public class Jeu {
         System.out.println("_____________________________");
         jeu.jouer();
     }
+
+    public Joueurs getJ1() {
+        return j1;
+    }
+
+    public Joueurs getJ2() {
+        return j2;
+    }
 }
 
 
