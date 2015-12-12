@@ -44,9 +44,6 @@ public class Jeu_v extends BasicGameState {
         flecheHaut = new Image("image/FlecheHaut.png");
         background = new Image("image/Fond.jpg");
         flecheBas = new Image("image/FlecheBas.png");
-        /*jeu.choixFigureJoueur(jeu.getJ1(),jeu.getJ2());
-        System.out.println("figure du joueur1 = " + jeu.getJ1().getFigure());
-        System.out.println("figure du joueur2 = " + jeu.getJ2().getFigure());*/
         Input input = new Input(Input.MOUSE_LEFT_BUTTON);
         setInput(input);
     }
@@ -66,6 +63,19 @@ public class Jeu_v extends BasicGameState {
                     graphics.drawImage(caseCroix,i+100,j+100);
                 }
             }
+        }
+        graphics.setColor(Color.white);
+        graphics.drawString(jeu.getJ1().getNomJoueur(),725,250);
+        graphics.drawString(jeu.getJ2().getNomJoueur(),925,250);
+        if(jeu.getJ1().getFigure() == 1){
+            graphics.drawImage(caseRond,725,300);
+        }else if(jeu.getJ1().getFigure() == 2){
+            graphics.drawImage(caseCroix,725,300);
+        }
+        if(jeu.getJ2().getFigure() == 1){
+            graphics.drawImage(caseRond,925,300);
+        }else if(jeu.getJ2().getFigure() == 2){
+            graphics.drawImage(caseCroix,925,300);
         }
         caseNeutre.draw(x,y);
         controlPlateau.clickCases(gameContainer);

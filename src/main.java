@@ -1,3 +1,4 @@
+import controller.ControlMenu;
 import controller.ControlPlateau;
 import model.Jeu;
 import model.Joueurs.Humains.Humains;
@@ -17,6 +18,7 @@ public class main {
         Plateau modelPlateau = new Plateau();
         Jeu jeu = new Jeu(h1,h2);
         ControlPlateau plateau = new ControlPlateau(modelPlateau, jeu);
-        new AppGameContainer(new Fenetre(plateau,jeu,modelPlateau), 700, 700, false).start();
+        ControlMenu controlMenu = new ControlMenu(jeu);
+        new AppGameContainer(new Fenetre(plateau,jeu,modelPlateau,controlMenu), 1200, 700, false).start();
     }
 }

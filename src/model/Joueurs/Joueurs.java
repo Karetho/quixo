@@ -17,6 +17,9 @@ public abstract class Joueurs {
     //ID du joueur : 0 = humain | 1 = bot
     protected int typeId;
 
+    //False si le joueur n'a pas joué
+    protected boolean dejaJoue;
+
     public Joueurs(String nomJoueur) {
         this.nomJoueur = nomJoueur;
     }
@@ -33,12 +36,19 @@ public abstract class Joueurs {
         this.figure = figure;
     }
 
-    public void setNomJoueur(String nomJoueur) { this.nomJoueur = nomJoueur; }
+    public void setDejaJoue(boolean dejaJoue) {
+        this.dejaJoue = dejaJoue;
+    }
 
+    public void setNomJoueur(String nomJoueur) { this.nomJoueur = nomJoueur; }
 
     public abstract void changerFigure();
 
     public int getFigure() {
         return figure;
+    }
+
+    public boolean getDejaJoue() {
+        return dejaJoue;
     }
 }

@@ -1,5 +1,6 @@
 package view;
 
+import controller.ControlMenu;
 import model.Jeu;
 import model.Joueurs.Humains.Humains;
 import model.Joueurs.Joueurs;
@@ -13,12 +14,14 @@ import org.newdawn.slick.state.StateBasedGame;
 class Menu_v extends BasicGameState {
     //le menu a un ID de 0
     public static final int ID = 0;
-    private Image background;
+    private Image background,caseRond,caseCroix;
     private StateBasedGame game;
+    private ControlMenu controlMenu;
     private Jeu jeu;
 
-    public Menu_v(Jeu jeu){
+    public Menu_v(Jeu jeu,ControlMenu controlMenu){
         this.jeu = jeu;
+        this.controlMenu = controlMenu;
     }
 
     @Override
@@ -31,11 +34,15 @@ class Menu_v extends BasicGameState {
         this.game = stateBasedGame;
         // il faut rajouter un background propre si possible
         background = new Image("image/Fond.jpg");
+        caseRond = new Image("image/caseRond.png");
+        caseCroix = new Image("image/caseCroix.png");
     }
 
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
         background.draw(0, 0, gameContainer.getWidth(), gameContainer.getHeight());
+        caseRond.draw(150,300);
+        caseCroix.draw(400,300);
         graphics.setColor(Color.red);
         graphics.drawString("Appuyez sur la touche Echap pour lancer le jeu",200,200);
     }
@@ -47,8 +54,7 @@ class Menu_v extends BasicGameState {
     @Override
     public void keyReleased(int key, char c) {
         if(Input.KEY_ESCAPE == key){
-            jeu.getJ1().setFigure(1);
-
+            controlMenu.choisirFigure();
             game.enterState(Jeu_v.ID);
         }
 
