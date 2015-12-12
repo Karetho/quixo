@@ -13,7 +13,6 @@ import view.Fenetre;
 public class ControlPlateau {
     private Jeu jeu;
     private Plateau plateau;
-    private Fenetre fen;
     int x,y;
 
     public ControlPlateau(Plateau plateau, Jeu jeu) throws SlickException {
