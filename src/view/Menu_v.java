@@ -36,8 +36,8 @@ class Menu_v extends BasicGameState {
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
         background.draw(0, 0, gameContainer.getWidth(), gameContainer.getHeight());
-        graphics.setColor(Color.black);
-        graphics.drawString("Appuyez sur la touche Echap pour lancer le jeu",300,300);
+        graphics.setColor(Color.red);
+        graphics.drawString("Appuyez sur la touche Echap pour lancer le jeu",200,200);
     }
 
     @Override

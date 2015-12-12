@@ -54,8 +54,8 @@
       <file leaf-file-name="Menu_v.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/view/Menu_v.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33497536">
-              <caret line="39" column="75" selection-start-line="39" selection-start-column="75" selection-end-line="39" selection-end-column="75" />
+            <state vertical-scroll-proportion="0.29310346">
+              <caret line="38" column="35" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
               <folding>
                 <element signature="e#479#480#0" expanded="true" />
                 <element signature="e#509#510#0" expanded="true" />
@@ -923,7 +923,7 @@
       <workItem from="1449837536861" duration="8069000" />
       <workItem from="1449845842351" duration="736000" />
       <workItem from="1449905989986" duration="12758000" />
-      <workItem from="1449927963795" duration="1913000" />
+      <workItem from="1449927963795" duration="1973000" />
     </task>
     <task id="LOCAL-00004" summary="TRANSALTION">
       <created>1449477048060</created>
@@ -955,7 +955,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449929723744</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="On a enfin un fond pour le jeu ;)">
+      <created>1449929899237</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1449929899237</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -967,7 +973,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31262000" />
+    <option name="totallyTimeSpent" value="31322000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1498,8 +1504,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/Menu_v.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33497536">
-          <caret line="39" column="75" selection-start-line="39" selection-start-column="75" selection-end-line="39" selection-end-column="75" />
+        <state vertical-scroll-proportion="0.29310346">
+          <caret line="38" column="35" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
           <folding>
             <element signature="e#479#480#0" expanded="true" />
             <element signature="e#509#510#0" expanded="true" />
