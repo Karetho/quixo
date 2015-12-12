@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="027c75bc-bcc2-4300-8a58-3133babda51a" name="Default" comment="Choix de la figure par le joueur niveau vu terminé">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/quixo/view/Fenetre.class" afterPath="$PROJECT_DIR$/out/production/quixo/view/Fenetre.class" />
+    <list default="true" id="027c75bc-bcc2-4300-8a58-3133babda51a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/quixo/main.class" afterPath="$PROJECT_DIR$/out/production/quixo/main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/quixo/model/Jeu.class" afterPath="$PROJECT_DIR$/out/production/quixo/model/Jeu.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/ControlMenu.java" afterPath="$PROJECT_DIR$/src/controller/ControlMenu.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/ControlPlateau.java" afterPath="$PROJECT_DIR$/src/controller/ControlPlateau.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.java" afterPath="$PROJECT_DIR$/src/main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Jeu.java" afterPath="$PROJECT_DIR$/src/model/Jeu.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/Jeu_v.java" afterPath="$PROJECT_DIR$/src/view/Jeu_v.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/Menu_v.java" afterPath="$PROJECT_DIR$/src/view/Menu_v.java" />
     </list>
     <ignored path="quixo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,10 +39,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Menu_v.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Menu_v.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/Menu_v.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.70689654">
+            <state vertical-scroll-proportion="0.0">
               <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
               <folding />
             </state>
@@ -70,7 +67,7 @@
         <entry file="file://$PROJECT_DIR$/src/view/Jeu_v.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="71" column="39" selection-start-line="71" selection-start-column="39" selection-end-line="71" selection-end-column="39" />
+              <caret line="72" column="62" selection-start-line="72" selection-start-column="62" selection-end-line="72" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ControlPlateau.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ControlPlateau.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/ControlPlateau.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="37" column="46" selection-start-line="37" selection-start-column="46" selection-end-line="37" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.8743842">
+              <caret line="46" column="51" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -139,11 +136,11 @@
         <option value="$PROJECT_DIR$/src/model/Joueurs/Joueurs.java" />
         <option value="$PROJECT_DIR$/src/view/Fenetre.java" />
         <option value="$PROJECT_DIR$/src/main.java" />
-        <option value="$PROJECT_DIR$/src/controller/ControlPlateau.java" />
-        <option value="$PROJECT_DIR$/src/view/Jeu_v.java" />
         <option value="$PROJECT_DIR$/src/model/Jeu.java" />
         <option value="$PROJECT_DIR$/src/controller/ControlMenu.java" />
         <option value="$PROJECT_DIR$/src/view/Menu_v.java" />
+        <option value="$PROJECT_DIR$/src/view/Jeu_v.java" />
+        <option value="$PROJECT_DIR$/src/controller/ControlPlateau.java" />
       </list>
     </option>
   </component>
@@ -885,7 +882,7 @@
       <workItem from="1449845842351" duration="736000" />
       <workItem from="1449905989986" duration="12758000" />
       <workItem from="1449927963795" duration="4763000" />
-      <workItem from="1449934430538" duration="7569000" />
+      <workItem from="1449934430538" duration="7977000" />
     </task>
     <task id="LOCAL-00004" summary="TRANSALTION">
       <created>1449477048060</created>
@@ -935,7 +932,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449940553197</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Choix de la figure par le joueur niveau vu terminé">
+      <created>1449945956823</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1449945956823</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -947,7 +950,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41681000" />
+    <option name="totallyTimeSpent" value="42089000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1432,21 +1435,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/ControlPlateau.java">
+    <entry file="file://$PROJECT_DIR$/src/view/Menu_v.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="46" selection-start-line="37" selection-start-column="46" selection-end-line="37" selection-end-column="46" />
+          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/Jeu_v.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="71" column="39" selection-start-line="71" selection-start-column="39" selection-end-line="71" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1462,10 +1455,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/Menu_v.java">
+    <entry file="file://$PROJECT_DIR$/src/view/Jeu_v.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70689654">
-          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="72" column="62" selection-start-line="72" selection-start-column="62" selection-end-line="72" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/ControlPlateau.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8743842">
+          <caret line="46" column="51" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
           <folding />
         </state>
       </provider>

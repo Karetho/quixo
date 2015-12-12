@@ -29,8 +29,11 @@ public class ControlPlateau {
         // y = axe des j dans le plateau niveau model
         x = input.getMouseX();
         y = input.getMouseY();
-        if((x > 100 && x < 600) && (y > 100 && y < 600)) {
+
+        if((x > 100 && x < 200) || (x > 500 && x < 600) || (y > 100 && y < 200) || (y > 500 && y < 600)) {
             if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
+                System.out.println("x = " + x);
+                System.out.println("y = " + y);
                 // notre plateau niveau vu commence a 100 et fini a 600 d'ou le -100
                 x-=100;
                 y-=100;
