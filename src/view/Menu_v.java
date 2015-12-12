@@ -18,6 +18,7 @@ class Menu_v extends BasicGameState {
     private StateBasedGame game;
     private ControlMenu controlMenu;
     private Jeu jeu;
+    Joueurs joueur = null;
 
     public Menu_v(Jeu jeu,ControlMenu controlMenu){
         this.jeu = jeu;
@@ -36,6 +37,8 @@ class Menu_v extends BasicGameState {
         background = new Image("image/Fond.jpg");
         caseRond = new Image("image/caseRond.png");
         caseCroix = new Image("image/caseCroix.png");
+        setInput(new Input(Input.MOUSE_LEFT_BUTTON));
+        joueur = jeu.choixJoueurCommence(jeu.getJ1(),jeu.getJ2());
     }
 
     @Override
@@ -44,19 +47,11 @@ class Menu_v extends BasicGameState {
         caseRond.draw(150,300);
         caseCroix.draw(400,300);
         graphics.setColor(Color.red);
-        graphics.drawString("Appuyez sur la touche Echap pour lancer le jeu",200,200);
+        graphics.drawString(joueur.getNomJoueur()+" commence la partie",200,200);
+        graphics.drawString("Appuyez sur une des cases pour choisir votre figure",200,250);
     }
-
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
-
-    }
-    @Override
-    public void keyReleased(int key, char c) {
-        if(Input.KEY_ESCAPE == key){
-            controlMenu.choisirFigure();
-            game.enterState(Jeu_v.ID);
-        }
-
+        controlMenu.choisirFigure(gameContainer,game,joueur);
     }
 }

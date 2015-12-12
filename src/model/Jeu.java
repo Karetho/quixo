@@ -82,9 +82,7 @@ public class Jeu {
             System.out.println("Veuillez choisir votre symbole : \npour rond entrer 1 \npour croix entrer 2.");
             figure = sc.nextInt();
         }
-
         setFigureJoueur(joueurs,figure);
-
         return joueurs;
     }
 

@@ -36,7 +36,6 @@ public class ControlPlateau {
                 y-=100;
                 // On prends l'arrondi au minimum de la division de x/100 et de y/100
                 if(jeu.getJ1().getDejaJoue()){
-                    System.out.println("toto1 a deja joue");
                     if(jeu.getJ2().getFigure() == 1){
                         plateau.getPlateauIJ(Math.floorDiv(x,100),Math.floorDiv(y,100)).setFigure(1);
                     }else if(jeu.getJ2().getFigure() == 2){
@@ -45,7 +44,6 @@ public class ControlPlateau {
                     jeu.getJ1().setDejaJoue(false);
                     jeu.getJ2().setDejaJoue(true);
                 }else if (jeu.getJ2().getDejaJoue()){
-                    System.out.println("toto2 a deja joue");
                     if (jeu.getJ1().getFigure() == 1){
                         plateau.getPlateauIJ(Math.floorDiv(x,100),Math.floorDiv(y,100)).setFigure(1);
                     }else if(jeu.getJ1().getFigure() == 2){

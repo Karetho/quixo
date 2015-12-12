@@ -64,6 +64,11 @@ public class Jeu_v extends BasicGameState {
                 }
             }
         }
+        if(jeu.getJ1().getDejaJoue()){
+            graphics.drawString(jeu.getJ2().getNomJoueur()+" de jouer",800,275);
+        }else if(jeu.getJ2().getDejaJoue()){
+            graphics.drawString(jeu.getJ1().getNomJoueur()+" de Jouer",800,275);
+        }
         graphics.setColor(Color.white);
         graphics.drawString(jeu.getJ1().getNomJoueur(),725,250);
         graphics.drawString(jeu.getJ2().getNomJoueur(),925,250);
