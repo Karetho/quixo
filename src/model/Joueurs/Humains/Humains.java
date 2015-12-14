@@ -28,6 +28,10 @@ public class Humains extends Joueurs {
 
     }
     // place une case sur une coordonées (i,j)
+    /*
+    *  TODO : Méthode a refaire on peut jouer n'importe ou on veux il faut juste voir le choix de coupPossible
+    *  Utiliser la méthode dans le plateau de choixPossible pour voir si c'est possible
+    */
     @Override
     public int placerCube(int i1, int j1, Cases cases, Plateau plateau,Joueurs joueursAdverse) {
         for (int i = 0; i < plateau.getDimension_i(); i++) {
