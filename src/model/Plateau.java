@@ -142,6 +142,7 @@ public class Plateau {
      j => arrivée j
      i1 => départ i
      j1 => départ j
+     TODO : couvrir tous les choix possibles avec la fonction choixPossible(i,j)
       */
     public void bougerPiece(int i,int j,int i1, int j1) {
         List<int[]> retour;

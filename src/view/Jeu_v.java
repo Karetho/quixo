@@ -83,11 +83,13 @@ public class Jeu_v extends BasicGameState {
             graphics.drawImage(caseCroix,925,300);
         }
         caseNeutre.draw(x,y);
-        controlPlateau.clickCases(gameContainer);
     }
-
+    /*
+        TODO : Faire l'animation de translation pour la méthode bougerPiece apres qu'il soit corrigé
+     */
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
+        controlPlateau.clickCases(gameContainer);
         if (x>=0&&y==0){
             x+=0.50;
         }

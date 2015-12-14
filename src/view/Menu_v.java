@@ -40,7 +40,9 @@ class Menu_v extends BasicGameState {
         setInput(new Input(Input.MOUSE_LEFT_BUTTON));
         joueur = jeu.choixJoueurCommence(jeu.getJ1(),jeu.getJ2());
     }
-
+    /*
+        TODO : Créer une autre vue, faire un autre background plus clair pour le menu
+     */
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
         background.draw(0, 0, gameContainer.getWidth(), gameContainer.getHeight());
