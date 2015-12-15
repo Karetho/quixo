@@ -122,6 +122,8 @@ public class Jeu_v extends BasicGameState {
 Il faut tout d'abord regarder ou est le premier click par rapport a x et a y et ensuite faire
 une difference pour faire bouger
 
+Donc comparer x mouse_pressed, y mouse_pressed donc utiliser Arrondir
+
         try {
             ImageABouger = new Image(Arrondir(x),Arrondir(y));
         } catch(SlickException e) {
