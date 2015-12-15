@@ -157,7 +157,7 @@ public class Jeu {
             l =sc.nextInt();
             // faire un for qui check lequel des choix possible
             plateau.bougerPiece(i,j,k,l);
-            peutJouer = joueur1.placerCube(k,l,casestemp,plateau,joueur2);
+            peutJouer = joueur1.placerCube(k,l,casestemp,plateau);
             while (peutJouer == 0) {
                 System.out.println("entrer coordonnée x du deuxième cube :");
                 k = sc.nextInt();
@@ -165,7 +165,7 @@ public class Jeu {
                 l =sc.nextInt();
                 // faire un for qui check lequel des choix possible
                 plateau.bougerPiece(i,j,k,l);
-                peutJouer = joueur1.placerCube(k,l,casestemp,plateau,joueur2);
+                peutJouer = joueur1.placerCube(k,l,casestemp,plateau);
             }
             System.out.println("plateau :"+plateau.getPlateauIJ(k,l).getFigure());
 
@@ -201,14 +201,14 @@ public class Jeu {
             System.out.println("entrer un entier pour l :");
             l =sc.nextInt();
             plateau.bougerPiece(i,j,k,l);
-            peutJouer = joueur2.placerCube(k,l,casestemp,plateau,joueur1);
+            peutJouer = joueur2.placerCube(k,l,casestemp,plateau);
             while (peutJouer == 0) {
                 System.out.println("entrer un entier pour k :");
                 k = sc.nextInt();
                 System.out.println("entrer un entier pour l :");
                 l =sc.nextInt();
                 plateau.bougerPiece(i,j,k,l);
-                peutJouer = joueur2.placerCube(k,l,casestemp,plateau,joueur1);
+                peutJouer = joueur2.placerCube(k,l,casestemp,plateau);
             }
 
             for ( int m = 0; m < plateau.getDimension_i(); m++) {
