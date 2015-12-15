@@ -17,12 +17,12 @@ public class Jeu_v extends BasicGameState {
     private ControlPlateau controlPlateau;
     private Jeu jeu;
     private Plateau plateau;
-    private Image caseNeutre, caseRond, caseCroix, flecheDroite, flecheGauche, flecheHaut, flecheBas, background;
+    private Image caseNeutre,ImageABouger, caseRond, caseCroix, flecheDroite, flecheGauche, flecheHaut, flecheBas, background;
     private Image bouger;
     float x = 0;
     float y = 0;
 
-    public Jeu_v(ControlPlateau controlPlateau, Jeu jeu, Plateau plateau){
+    public Jeu_v(ControlPlateau controlPlateau, Jeu jeu, Plateau plateau) throws SlickException {
         this.controlPlateau = controlPlateau;
         this.jeu = jeu;
         this.plateau = plateau;
@@ -90,6 +90,7 @@ public class Jeu_v extends BasicGameState {
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
         controlPlateau.clickCases(gameContainer);
+
         if (x>=0&&y==0){
             x+=0.50;
         }
@@ -103,6 +104,35 @@ public class Jeu_v extends BasicGameState {
             y-=0.50;
         }
 
+/*
+        Faire une fonction qui : regarde par rapport au deuxieme click si le x ou le y est compris entre celui
+        de base pour savoir si on translate a droite/gauche ou haut/bas.
+        Je pense donc cree des fonctions qui arrondissent pour reinitialiser x et y pour eviter tout decalages
+        Ensuite on prend la ligne dans le gamecontener (creation d'une image temporaire a priori) je sais pas ou la cree lol
+
+        LA METHODE POUR ARRONDIR
+
+        public int Arrondir(float n){
+        return Math.round(n);
+    }
+
+
+
+    CREATION DE LA LIGNE A BOUGER
+Il faut tout d'abord regarder ou est le premier click par rapport a x et a y et ensuite faire
+une difference pour faire bouger
+
+        try {
+            ImageABouger = new Image(Arrondir(x),Arrondir(y));
+        } catch(SlickException e) {
+            Log.error("creating local image or graphics context failed: " + e.getMessage());
+        }
+*/
+
+
+
+
         //System.out.println("x = " + x);
     }
 }
+
