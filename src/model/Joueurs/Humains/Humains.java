@@ -5,10 +5,16 @@ import model.Cases;
 import model.Joueurs.Joueurs;
 import model.Plateau;
 
+import java.util.List;
+
 /**
  * Created by Skygix on 12/11/2015.
  */
 public class Humains extends Joueurs {
+
+    /* -----------------------------------------------------*
+    *   Constructeurs                                       *
+    *------------------------------------------------------*/
 
     public Humains() {
         super("Humain");
@@ -19,6 +25,11 @@ public class Humains extends Joueurs {
         super(s);
         figure = 0;
     }
+
+     /* -----------------------------------------------------*
+    *   Méthodes                                            *
+    * ------------------------------------------------------*/
+
     // prends une cases de coordonnées (i,j) et supprime la case a cet emplacement
     @Override
     public Cases prendreCube(int i, int j, Plateau plateau,Cases casestemp) {
@@ -33,7 +44,7 @@ public class Humains extends Joueurs {
     *  Utiliser la méthode dans le plateau de choixPossible pour voir si c'est possible
     */
     @Override
-    public int placerCube(int i1, int j1, Cases cases, Plateau plateau,Joueurs joueursAdverse) {
+    public int placerCube(int i1, int j1, Cases cases, Plateau plateau) {
         for (int i = 0; i < plateau.getDimension_i(); i++) {
             for (int j = 0; j < plateau.getDimension_j(); j++) {
                 if (plateau.getPlateauIJ(i,j).getFigure() == 3) {
@@ -41,6 +52,7 @@ public class Humains extends Joueurs {
                 }
             }
         }
+
        if (plateau.getPlateauIJ(i1,j1).getFigure() == 0 || plateau.getPlateauIJ(i1,j1).getFigure() == this.getFigure()) {
            plateau.getPlateauIJ(i1, j1).setFigure(cases.getFigure());
            return 1;
@@ -69,15 +81,33 @@ public class Humains extends Joueurs {
         }
     }
 
-
-    public void setFigure(int figure){this.figure =figure;}
-
-    public String getNomJoueur() { return super.getNomJoueur();}
-
-    public void setNomJoueur(String nomJoueur) { super.setNomJoueur(nomJoueur); }
-
     @Override
     public void changerFigure() {
 
     }
+
+    //Renvoit le nom de la figure selon le chiffre de <figure>
+    private String tradFigure(int figure) {
+        switch (figure) {
+            case 1 :
+                nomFigure = "rond";
+                break;
+            case 2 :
+                nomFigure = "croix";
+                break;
+        }
+        return nomFigure;
+    }
+
+
+    @Override
+    public String toString() {
+        String infosHumain;
+        nomFigure = tradFigure(this.figure);
+
+        infosHumain = "Nom : " + this.nomJoueur + "\nFigure : " + this.nomFigure + "\nDeja joué : " + this.dejaJoue;
+        return infosHumain;
+    }
+
+
 }

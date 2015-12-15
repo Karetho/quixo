@@ -4,6 +4,11 @@ package model;
  * Created by nicolas on 20/11/2015.
  */
 public class Cases  {
+
+    /* ------------------------------------------------------
+    *   Attributs de la classe Plateau                      *
+    * ------------------------------------------------------*/
+
     private int figure;
 
     private final int NO_FIGURE = 0;
@@ -11,15 +16,27 @@ public class Cases  {
     private final int FIGURE_2 = 2;
     private final int SUPPR_FIGURE = 3; //vide
 
+    /* -----------------------------------------------------*
+    *   Constructeur                                        *
+    *------------------------------------------------------*/
+
     public Cases(){
         figure = NO_FIGURE;
     }
 
-    public void setFigure(int figure) {
-        this.figure = figure;
-    }
+    /* -----------------------------------------------------*
+    *   Méthodes get                                        *
+    * ------------------------------------------------------*/
 
     public int getFigure() {
         return figure;
+    }
+
+    /* -----------------------------------------------------*
+    *   Méthodes set                                         *
+    * ------------------------------------------------------*/
+
+    public void setFigure(int figure) {
+        this.figure = figure;
     }
 }

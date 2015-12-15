@@ -14,15 +14,30 @@ import java.util.Scanner;
  * Created by bobol on 20/11/15.
  */
 public class Jeu {
+
+    /* ------------------------------------------------------
+    *   Attributs de la classe Jeu                          *
+    * ------------------------------------------------------*/
+
     private Joueurs j1,j2;
     private Plateau plateau;
     private int nbManches;
     public static Scanner sc = new Scanner(System.in);
+
+     /* -----------------------------------------------------*
+     *   Constructeur                                        *
+     *------------------------------------------------------*/
+
     public Jeu(Humains h1, Humains h2){
         j1 = h1;
         j2 = h2;
         plateau = new Plateau();
     }
+    
+    /* -----------------------------------------------------*
+    *   Méthodes                                            *
+    * ------------------------------------------------------*/
+    
     //Fonctions random qui permet de choisir
     public Joueurs choixJoueurCommence(Joueurs j1, Joueurs j2) {
         Random aleatoire;
@@ -68,6 +83,8 @@ public class Jeu {
             }
         }
     }
+    
+    
     // Choisi le joueur qui commence et qui choisi sa figure
     // retourne le joueur qui commence
     public Joueurs choixFigureJoueur(Joueurs j1, Joueurs j2) {
@@ -93,6 +110,8 @@ public class Jeu {
             setManche(manche);
         }
     }
+    
+    
     //Faire une boucle de jeu (while cdt de victoire est false)
     public void jouer(){
         Cases casestemp;
@@ -104,6 +123,8 @@ public class Jeu {
         }else{
             joueur2 = j1;
         }
+        System.out.println("Joueur 1 : \n" + joueur1);
+        System.out.println("Joueur 2 : \n" + joueur2);
         //retourne un int pour savoir qui gagne
         verif = plateau.verifVictoireJoueurFigure();
         /*verifVictoireJoueurFigure
@@ -208,9 +229,29 @@ public class Jeu {
         }
     }
 
+    /* -----------------------------------------------------*
+    *   Méthodes get                                        *
+    * ------------------------------------------------------*/
+    
+    public Joueurs getJ1() {
+        return j1;
+    }
+
+    public Joueurs getJ2() {
+        return j2;
+    }
+    
+    /* -----------------------------------------------------*
+    *   Méthodes set                                         *
+    * ------------------------------------------------------*/
+    
     public void setManche(int manche) {
         this.nbManches = manche;
     }
+    
+    
+    
+    
 
     public static void main(String[] args) {
         Jeu jeu = new Jeu(new Humains("Adam"),new Humains("Clement"));
@@ -222,14 +263,6 @@ public class Jeu {
         }
         System.out.println("_____________________________");
         jeu.jouer();
-    }
-
-    public Joueurs getJ1() {
-        return j1;
-    }
-
-    public Joueurs getJ2() {
-        return j2;
     }
 }
 

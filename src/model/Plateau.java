@@ -1,6 +1,4 @@
 package model;
-import org.lwjgl.Sys;
-
 import java.util.LinkedList;
 import java.util.List;
 
@@ -8,10 +6,19 @@ import java.util.List;
  * Created by bobol on 20/11/15.
  */
 public class Plateau {
+
+    /* ------------------------------------------------------
+    *   Attributs de la classe Plateau                      *
+    * ------------------------------------------------------*/
+
     private Cases[][] plateau;
     private final int dimension_i = 5;
     private final int dimension_j = 5;
 
+
+    /* -----------------------------------------------------*
+    *   Constructeur                                        *
+    *------------------------------------------------------*/
 
     public Plateau(){
         plateau = new Cases[dimension_i][dimension_j];
@@ -21,6 +28,11 @@ public class Plateau {
             }
         }
     }
+
+    /* -----------------------------------------------------*
+    *   Méthodes                                            *
+    * ------------------------------------------------------*/
+
     // Verification des lignes de figures retourne false si pas de cases
     public int verifVictoireJoueurFigure(){
         int result = 0;
@@ -97,6 +109,8 @@ public class Plateau {
         result=0;
         return result;
     }
+
+
     // Affiche les différentes possibilités que le joueur a apres avoir pris un cube
     public List <int[]> choixPossible(int i, int j) {
         List <int[]> retour = new LinkedList<>();
@@ -144,6 +158,7 @@ public class Plateau {
      j1 => départ j
      TODO : couvrir tous les choix possibles avec la fonction choixPossible(i,j)
       */
+
     public void bougerPiece(int i,int j,int i1, int j1) {
         List<int[]> retour;
         int i_arrive,j_arrive;
@@ -164,16 +179,16 @@ public class Plateau {
         }
     }
 
+    /* -----------------------------------------------------*
+    *   Méthodes get                                        *
+    * ------------------------------------------------------*/
+
     public Cases[][] getPlateau() {
         return plateau;
     }
 
     public Cases getPlateauIJ(int i, int j) {
         return plateau[i][j];
-    }
-
-    public void setPlateauIJ(int i, int j,int figure) {
-        plateau[i][j].setFigure(figure);
     }
 
     public int getDimension_i() {
@@ -183,6 +198,15 @@ public class Plateau {
     public int getDimension_j() {
         return dimension_j;
     }
+
+     /* -----------------------------------------------------*
+    *   Méthodes set                                         *
+    * ------------------------------------------------------*/
+
+    public void setPlateauIJ(int i, int j,int figure) {
+        plateau[i][j].setFigure(figure);
+    }
+
 
 
 }
