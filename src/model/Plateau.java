@@ -145,7 +145,59 @@ public class Plateau {
      TODO : couvrir tous les choix possibles avec la fonction choixPossible(i,j)
       */
     public void bougerPiece(int i,int j,int i1, int j1) {
-        List<int[]> retour;
+
+        //test si la case choisie est sur un coté horizontal
+        if (i == 0 || i == 4) {
+            //test si la deuxieme case choisie est sur la même ligne que la 1er
+            if (i == i1){
+                //test pour savoir le sens du décalage
+                if (j < j1) {
+                    for (int k=j+1; k<5 ; k++ ) {
+                        plateau[i][k-1].setFigure(plateau[i][k].getFigure());
+                    }
+                }else if(j>j1){
+                    for (int k=j-1; k>=0 ; k-- ) {
+                        plateau[i][k+1].setFigure(plateau[i][k].getFigure());
+                    }
+                }
+            }else if (j==j1){
+                if (i<i1){
+                    for (int k=i+1; k<5 ; k++ ){
+                        plateau[k-1][j].setFigure(plateau[k][j].getFigure());
+                    }
+                }else if (i>i1){
+                    for (int k=i1-1; k>=0 ; k--){
+                        plateau[k+1][j].setFigure(plateau[k][j].getFigure());
+                    }
+                }
+            }
+        }else if (j == 0 || j == 4){
+            //test si la deuxieme case choisie est sur la même ligne que la 1er
+            if (j == j1){
+                //test pour savoir le sens du décalage
+                if (i < i1) {
+                    for (int k=i+1; k<5 ; k++ ) {
+                        plateau[k-1][j].setFigure(plateau[k][j].getFigure());
+                    }
+                }else if(i>i1){
+                    for (int k=i-1; k>=0 ; k-- ) {
+                        plateau[k][j].setFigure(plateau[k][j].getFigure());
+                    }
+                }
+            }else if (i==i1){
+                if (j<j1){
+                    for (int k=j+1; k<5 ; k++ ){
+                        plateau[i][k-1].setFigure(plateau[i][k].getFigure());
+                    }
+                }else if (j>j1){
+                    for (int k=j1-1; k>=0 ; k--){
+                        plateau[i][k+1].setFigure(plateau[i][k].getFigure());
+                    }
+                }
+            }
+        }
+    }
+        /*List<int[]> retour;
         int i_arrive,j_arrive;
         if (plateau[i][j].getFigure() == 3) {
             retour = choixPossible(i,j);
@@ -162,7 +214,7 @@ public class Plateau {
                 }
             }
         }
-    }
+    }*/
 
     public Cases[][] getPlateau() {
         return plateau;

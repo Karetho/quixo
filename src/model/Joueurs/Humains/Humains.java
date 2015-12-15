@@ -41,14 +41,8 @@ public class Humains extends Joueurs {
                 }
             }
         }
-       if (plateau.getPlateauIJ(i1,j1).getFigure() == 0 || plateau.getPlateauIJ(i1,j1).getFigure() == this.getFigure()) {
-           plateau.getPlateauIJ(i1, j1).setFigure(cases.getFigure());
-           return 1;
-       }
-        else {
-           System.out.println("Vous ne pouvez pas jouer ici !!!!!!!!");
-           return 0;
-       }
+        plateau.getPlateauIJ(i1, j1).setFigure(cases.getFigure());
+        return 1;
     }
 
     @Override
