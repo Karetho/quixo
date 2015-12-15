@@ -5,8 +5,6 @@ import model.Cases;
 import model.Joueurs.Joueurs;
 import model.Plateau;
 
-import java.util.List;
-
 /**
  * Created by Skygix on 12/11/2015.
  */
