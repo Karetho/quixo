@@ -90,7 +90,6 @@ public class Jeu_v extends BasicGameState {
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
         controlPlateau.clickCases(gameContainer);
-
         if (x>=0&&y==0){
             x+=0.50;
         }

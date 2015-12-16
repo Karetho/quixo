@@ -31,7 +31,11 @@ public class Humains extends Joueurs {
     // prends une cases de coordonnées (i,j) et supprime la case a cet emplacement
     @Override
     public Cases prendreCube(int i, int j, Plateau plateau,Cases casestemp) {
-        casestemp.setFigure( plateau.getPlateauIJ(i,j).getFigure());
+        if(plateau.getPlateauIJ(i,j).getFigure() == 0){
+            casestemp.setFigure(figure);
+        }else{
+            casestemp.setFigure( plateau.getPlateauIJ(i,j).getFigure());
+        }
         plateau.setPlateauIJ(i,j,3);
         return casestemp;
 
