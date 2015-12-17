@@ -51,8 +51,10 @@ public class ControlMenu {
             choixFigure(x,y,joueur,game);
             if (joueur == jeu.getJ1()) {
                 jeu.getJ2().setDejaJoue(true);
+                jeu.getJ1().setDejaJoue(false);
             } else if (joueur == jeu.getJ2()) {
                 jeu.getJ1().setDejaJoue(true);
+                jeu.getJ2().setDejaJoue(false);
             }
         }
     }

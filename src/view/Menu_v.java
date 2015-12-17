@@ -5,8 +5,14 @@ import model.Jeu;
 import model.Joueurs.Humains.Humains;
 import model.Joueurs.Joueurs;
 import org.newdawn.slick.*;
+import org.newdawn.slick.Color;
+//import org.newdawn.slick.Font;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import java.awt.Font;
+
 
 /**
  * Created by Roland on 12-Dec-15.
@@ -19,6 +25,9 @@ class Menu_v extends BasicGameState {
     private ControlMenu controlMenu;
     private Jeu jeu;
     Joueurs joueur = null;
+    private TrueTypeFont font;
+    private Font font1;
+
 
     public Menu_v(Jeu jeu,ControlMenu controlMenu){
         this.jeu = jeu;
@@ -39,6 +48,8 @@ class Menu_v extends BasicGameState {
         caseCroix = new Image("image/caseCroix.png");
         setInput(new Input(Input.MOUSE_LEFT_BUTTON));
         joueur = jeu.choixJoueurCommence(jeu.getJ1(),jeu.getJ2());
+        font1 = new Font("Times New Roman", java.awt.Font.BOLD, 35);
+        font = new TrueTypeFont(font1, false);
     }
     /*
         TODO : Créer une autre vue, faire un autre background plus clair pour le menu
@@ -48,9 +59,11 @@ class Menu_v extends BasicGameState {
         background.draw(0, 0, gameContainer.getWidth(), gameContainer.getHeight());
         caseRond.draw(150,300);
         caseCroix.draw(400,300);
-        graphics.setColor(Color.red);
-        graphics.drawString(joueur.getNomJoueur()+" commence la partie",200,200);
-        graphics.drawString("Appuyez sur une des cases pour choisir votre figure",200,250);
+        //graphics.setColor(Color.red);
+        //graphics.drawString(joueur.getNomJoueur()+" commence la partie",200,200);
+        font.drawString(200,200,joueur.getNomJoueur()+" commence la partie",Color.blue);
+        //graphics.drawString("Appuyez sur une des cases pour choisir votre figure",200,250);
+        font.drawString(200,250,"Appuyez sur une des cases pour choisir votre figure",Color.blue);
     }
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {

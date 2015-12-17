@@ -85,15 +85,12 @@ public class Jeu_v extends BasicGameState {
         }else if(jeu.getJ2().getFigure() == 2){
             graphics.drawImage(caseCroix,925,300);
         }
-        caseNeutre.draw(x,y);
     }
     /*
         TODO : Faire l'animation de translation pour la méthode bougerPiece apres qu'il soit corrigé
      */
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
-
-
         if (x>=0&&y==0){
             x+=0.50;
         }

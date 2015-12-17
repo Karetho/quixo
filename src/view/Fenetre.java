@@ -16,9 +16,6 @@ public class Fenetre extends StateBasedGame {
     private Jeu jeu;
     private Plateau plateau;
     private ControlFin controlFin;
-    private Joueurs joueurs;
-    private Image caseNeutre, caseRond, caseCroix, flecheDroite, flecheGauche, flecheHaut, flecheBas;
-    private Image bouger;
 
     private float x = 0, y = 0;
 
@@ -36,6 +33,6 @@ public class Fenetre extends StateBasedGame {
     public void initStatesList(GameContainer gameContainer) throws SlickException {
         addState(new Menu_v(jeu,controlMenu));
         addState(new Jeu_v(controlPlateau,jeu,plateau));
-        addState(new Fin_v(controlFin,jeu,plateau));
+        addState(new Fin_v(controlFin,jeu,plateau,controlMenu));
     }
 }
