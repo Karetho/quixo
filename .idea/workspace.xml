@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="027c75bc-bcc2-4300-8a58-3133babda51a" name="Default" comment="Ménage dans le code">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/quixo/model/Jeu.class" afterPath="$PROJECT_DIR$/out/production/quixo/model/Jeu.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/quixo/model/Joueurs/Humains/Humains.class" afterPath="$PROJECT_DIR$/out/production/quixo/model/Joueurs/Humains/Humains.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/quixo/model/Joueurs/Joueurs.class" afterPath="$PROJECT_DIR$/out/production/quixo/model/Joueurs/Joueurs.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/quixo/model/Plateau.class" afterPath="$PROJECT_DIR$/out/production/quixo/model/Plateau.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/quixo/TestHumain.class" afterPath="$PROJECT_DIR$/out/test/quixo/TestHumain.class" />
+    <list default="true" id="027c75bc-bcc2-4300-8a58-3133babda51a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/ControlPlateau.java" afterPath="$PROJECT_DIR$/src/controller/ControlPlateau.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Joueurs/Humains/Humains.java" afterPath="$PROJECT_DIR$/src/model/Joueurs/Humains/Humains.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/Jeu_v.java" afterPath="$PROJECT_DIR$/src/view/Jeu_v.java" />
     </list>
     <ignored path="quixo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ControlPlateau.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ControlPlateau.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/ControlPlateau.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="140" selection-start-line="60" selection-start-column="140" selection-end-line="60" selection-end-column="140" />
+            <state vertical-scroll-proportion="0.5862069">
+              <caret line="23" column="4" selection-start-line="22" selection-start-column="5" selection-end-line="23" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -87,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Jeu_v.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Jeu_v.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/Jeu_v.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2044335">
-              <caret line="91" column="49" selection-start-line="91" selection-start-column="49" selection-end-line="91" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="97" column="9" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -103,7 +96,7 @@
         <entry file="file://$PROJECT_DIR$/src/model/Cases.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="62" selection-start-line="34" selection-start-column="4" selection-end-line="36" selection-end-column="62" />
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -823,6 +816,11 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -891,7 +889,9 @@
       <workItem from="1450080461480" duration="9051000" />
       <workItem from="1450186061228" duration="3379000" />
       <workItem from="1450202393303" duration="8231000" />
-      <workItem from="1450264996224" duration="6066000" />
+      <workItem from="1450264996224" duration="7746000" />
+      <workItem from="1450293152909" duration="617000" />
+      <workItem from="1450339495905" duration="571000" />
     </task>
     <task id="LOCAL-00004" summary="TRANSALTION">
       <created>1449477048060</created>
@@ -965,7 +965,13 @@
       <option name="project" value="LOCAL" />
       <updated>1450188968059</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="On peut jouer mais pas de verif de victoire dans le controller">
+      <created>1450272505186</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1450272505186</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -977,7 +983,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70447000" />
+    <option name="totallyTimeSpent" value="73315000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -1041,7 +1047,8 @@
     <MESSAGE value="TODO :&#10; - Méthode bougerPiece a refaire dans le plateau pour couvrir tous les choixPossibles&#10; - Méthode placerCube dans Humains a refaire pour regarder si le coup est possible grâce à la méthode du plateau choixPossible" />
     <MESSAGE value="Commentaires pour la translation, un comment ça marche quoi !" />
     <MESSAGE value="Ménage dans le code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ménage dans le code" />
+    <MESSAGE value="On peut jouer mais pas de verif de victoire dans le controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="On peut jouer mais pas de verif de victoire dans le controller" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1094,9 +1101,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="7" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1148,9 +1152,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="7" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1158,7 +1159,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1166,7 +1166,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1202,7 +1201,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1228,7 +1226,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1254,7 +1251,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1272,7 +1268,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1290,7 +1285,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1308,7 +1302,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1326,7 +1319,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1372,9 +1364,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="7" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1407,7 +1396,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1415,9 +1403,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.10554562">
           <caret line="0" column="19" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1465,29 +1450,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/Jeu_v.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="97" column="9" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Cases.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="62" selection-start-line="34" selection-start-column="4" selection-end-line="36" selection-end-column="62" />
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/ControlPlateau.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="140" selection-start-line="60" selection-start-column="140" selection-end-line="60" selection-end-column="140" />
+        <state vertical-scroll-proportion="0.5862069">
+          <caret line="23" column="4" selection-start-line="22" selection-start-column="5" selection-end-line="23" selection-end-column="4" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/Jeu_v.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2044335">
-          <caret line="91" column="49" selection-start-line="91" selection-start-column="49" selection-end-line="91" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

@@ -9,6 +9,8 @@ import org.newdawn.slick.command.Command;
 import org.newdawn.slick.opengl.SlickCallable;
 import view.Fenetre;
 
+import java.util.List;
+
 /**
  * Created by Roland on 04-Dec-15.
  */
@@ -40,6 +42,7 @@ public class ControlPlateau {
                 y-=100;
                 // On prends l'arrondi au minimum de la division de x/100 et de y/100
                 if(i == 1){
+
                     if(jeu.getJ1().getDejaJoue()){
                         //prendre le cube et le placer autre part pour pousser les cubes (jouerCoup)
                         caseTemp = jeu.getJ2().verifCube(Math.floorDiv(x, 100), Math.floorDiv(y, 100), plateau);
@@ -56,22 +59,35 @@ public class ControlPlateau {
                     }
                 }
                 else if (i == 2){
+                    List<int[]> choix = plateau.choixPossible(Math.floorDiv(oldX, 100), Math.floorDiv(oldY, 100));
                     // faire sous oldX et oldY les anciennes coordonnées du premier clic
                     if(Math.floorDiv(oldX, 100) != Math.floorDiv(x, 100) || Math.floorDiv(oldY, 100) != Math.floorDiv(y, 100)){
                         plateau.bougerPiece(Math.floorDiv(oldX, 100),Math.floorDiv(oldY, 100),Math.floorDiv(x, 100), Math.floorDiv(y, 100));
                         if(jeu.getJ1().getDejaJoue()){
                             //prendre le cube et le placer autre part pour pousser les cubes (jouerCoup)
-                            plateau.setPlateauIJ(Math.floorDiv(x,100),Math.floorDiv(y,100),jeu.getJ2().getFigure());
-                            jeu.getJ1().setDejaJoue(false);
-                            jeu.getJ2().setDejaJoue(true);
+                            for (int j = 0; j < choix.size(); j++) {
+                                if(choix.get(j)[0] == Math.floorDiv(x, 100) && choix.get(j)[1] == Math.floorDiv(y, 100)){
+                                    plateau.setPlateauIJ(Math.floorDiv(x,100),Math.floorDiv(y,100),jeu.getJ2().getFigure());
+                                    jeu.getJ1().setDejaJoue(false);
+                                    jeu.getJ2().setDejaJoue(true);
+                                    System.out.println("Deuxieme coup du joueur :"+i);
+                                    i = 1;
+                                    System.out.println("Changement de joueur");
+                                }
+                            }
                         }else if(jeu.getJ2().getDejaJoue()) {
-                            plateau.setPlateauIJ(Math.floorDiv(x,100),Math.floorDiv(y,100),jeu.getJ1().getFigure());
-                            jeu.getJ2().setDejaJoue(false);
-                            jeu.getJ1().setDejaJoue(true);
+                            for (int j = 0; j < choix.size(); j++) {
+                                if(choix.get(j)[0] == Math.floorDiv(x, 100) && choix.get(j)[1] == Math.floorDiv(y, 100)){
+                                    plateau.setPlateauIJ(Math.floorDiv(x,100),Math.floorDiv(y,100),jeu.getJ1().getFigure());
+                                    jeu.getJ2().setDejaJoue(false);
+                                    jeu.getJ1().setDejaJoue(true);
+                                    System.out.println("Deuxieme coup du joueur :"+i);
+                                    i = 1;
+                                    System.out.println("Changement de joueur");
+                                }
+                            }
                         }
-                        System.out.println("Deuxieme coup du joueur :"+i);
-                        i = 1;
-                        System.out.println("Changement de joueur");
+                        System.out.println("Peut pas jouer");
                     }
                 }
             }
