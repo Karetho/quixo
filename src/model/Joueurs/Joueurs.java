@@ -39,7 +39,7 @@ public abstract class Joueurs {
 
     public  abstract Cases prendreCube(int i, int j, Plateau plateau, Cases cases);
 
-    public  abstract int placerCube(int i, int j,Cases cases, Plateau plateau);
+    public  abstract void placerCube(int i, int j,Cases cases, Plateau plateau);
 
     public abstract Cases verifCube(int i, int j, Plateau plateau);
 

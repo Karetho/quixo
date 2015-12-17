@@ -40,14 +40,17 @@ public class ControlPlateau {
                 // notre plateau niveau vu commence a 100 et fini a 600 d'ou le -100
                 x-=100;
                 y-=100;
+                System.out.println("x = " + Math.floorDiv(x,100));
+                System.out.println("y = " + Math.floorDiv(y,100));
                 // On prends l'arrondi au minimum de la division de x/100 et de y/100
                 if(i == 1){
-
                     if(jeu.getJ1().getDejaJoue()){
                         //prendre le cube et le placer autre part pour pousser les cubes (jouerCoup)
+                        //caseTemp = jeu.getJ2().verifCube( Math.floorDiv(y, 100),Math.floorDiv(x, 100), plateau);
                         caseTemp = jeu.getJ2().verifCube(Math.floorDiv(x, 100), Math.floorDiv(y, 100), plateau);
                         //plateau.getPlateauIJ(Math.floorDiv(x,100),Math.floorDiv(y,100)).setFigure(1);
                     }else if(jeu.getJ2().getDejaJoue()) {
+                        //caseTemp = jeu.getJ1().verifCube( Math.floorDiv(y, 100),Math.floorDiv(x, 100), plateau);
                         caseTemp = jeu.getJ1().verifCube(Math.floorDiv(x, 100), Math.floorDiv(y, 100), plateau);
                         //plateau.getPlateauIJ(Math.floorDiv(x, 100), Math.floorDiv(y, 100)).setFigure(2);
                     }
@@ -59,27 +62,38 @@ public class ControlPlateau {
                     }
                 }
                 else if (i == 2){
-                    List<int[]> choix = plateau.choixPossible(Math.floorDiv(oldX, 100), Math.floorDiv(oldY, 100));
+                    List<int[]> choix = plateau.choixPossible( Math.floorDiv(oldX, 100),Math.floorDiv(oldY, 100));
+                    //List<int[]> choix = plateau.choixPossible(Math.floorDiv(oldY, 100), Math.floorDiv(oldX, 100));
                     // faire sous oldX et oldY les anciennes coordonnées du premier clic
                     if(Math.floorDiv(oldX, 100) != Math.floorDiv(x, 100) || Math.floorDiv(oldY, 100) != Math.floorDiv(y, 100)){
+                        //plateau.bougerPiece(Math.floorDiv(oldX, 100),Math.floorDiv(oldY, 100),Math.floorDiv(x, 100), Math.floorDiv(y, 100));
                         if(jeu.getJ1().getDejaJoue()){
                             //prendre le cube et le placer autre part pour pousser les cubes (jouerCoup)
                             for (int j = 0; j < choix.size(); j++) {
+                                //if(choix.get(j)[0] ==  Math.floorDiv(y, 100)&& choix.get(j)[1] ==Math.floorDiv(x, 100)){
                                 if(choix.get(j)[0] == Math.floorDiv(x, 100) && choix.get(j)[1] == Math.floorDiv(y, 100)){
+                                    //plateau.bougerPiece(Math.floorDiv(oldY, 100),Math.floorDiv(oldX, 100), Math.floorDiv(y, 100),Math.floorDiv(x, 100));
                                     plateau.bougerPiece(Math.floorDiv(oldX, 100),Math.floorDiv(oldY, 100),Math.floorDiv(x, 100), Math.floorDiv(y, 100));
-                                    plateau.setPlateauIJ(Math.floorDiv(x,100),Math.floorDiv(y,100),jeu.getJ2().getFigure());
+                                    //plateau.setPlateauIJ(Math.floorDiv(y,100),Math.floorDiv(x,100),caseTemp);
+                                    plateau.setPlateauIJ(Math.floorDiv(x,100),Math.floorDiv(y,100),caseTemp);
                                     jeu.getJ1().setDejaJoue(false);
                                     jeu.getJ2().setDejaJoue(true);
                                     System.out.println("Deuxieme coup du joueur :"+i);
                                     i = 1;
                                     System.out.println("Changement de joueur");
+                                }else{
+                                    System.out.println("x = " + Math.floorDiv(x,100));
+                                    System.out.println("y = " + Math.floorDiv(y,100));
                                 }
                             }
                         }else if(jeu.getJ2().getDejaJoue()) {
                             for (int j = 0; j < choix.size(); j++) {
+                                //if(choix.get(j)[0] ==  Math.floorDiv(y, 100)&& choix.get(j)[1] ==Math.floorDiv(x, 100)){
                                 if(choix.get(j)[0] == Math.floorDiv(x, 100) && choix.get(j)[1] == Math.floorDiv(y, 100)){
-                                    plateau.bougerPiece(Math.floorDiv(oldX, 100),Math.floorDiv(oldY, 100),Math.floorDiv(x, 100), Math.floorDiv(y, 100));
-                                    plateau.setPlateauIJ(Math.floorDiv(x,100),Math.floorDiv(y,100),jeu.getJ1().getFigure());
+                                //plateau.bougerPiece(Math.floorDiv(oldY, 100),Math.floorDiv(oldX, 100), Math.floorDiv(y, 100),Math.floorDiv(x, 100));
+                                plateau.bougerPiece(Math.floorDiv(oldX, 100),Math.floorDiv(oldY, 100),Math.floorDiv(x, 100), Math.floorDiv(y, 100));
+                                //plateau.setPlateauIJ(Math.floorDiv(y,100),Math.floorDiv(x,100),caseTemp);
+                                plateau.setPlateauIJ(Math.floorDiv(x,100),Math.floorDiv(y,100),caseTemp);
                                     jeu.getJ2().setDejaJoue(false);
                                     jeu.getJ1().setDejaJoue(true);
                                     System.out.println("Deuxieme coup du joueur :"+i);

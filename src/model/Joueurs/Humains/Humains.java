@@ -36,7 +36,7 @@ public class Humains extends Joueurs {
         }else{
             casestemp.setFigure( plateau.getPlateauIJ(i,j).getFigure());
         }
-        plateau.setPlateauIJ(i,j,3);
+        plateau.setPlateauIJFigure(i,j,3);
         return casestemp;
 
     }
@@ -46,23 +46,8 @@ public class Humains extends Joueurs {
     *  Utiliser la méthode dans le plateau de choixPossible pour voir si c'est possible
     */
     @Override
-    public int placerCube(int i1, int j1, Cases cases, Plateau plateau) {
-        for (int i = 0; i < plateau.getDimension_i(); i++) {
-            for (int j = 0; j < plateau.getDimension_j(); j++) {
-                if (plateau.getPlateauIJ(i,j).getFigure() == 3) {
-                    plateau.getPlateauIJ(i,j).setFigure(0);
-                }
-            }
-        }
-
-       if (plateau.getPlateauIJ(i1,j1).getFigure() == 0 || plateau.getPlateauIJ(i1,j1).getFigure() == this.getFigure()) {
-           plateau.getPlateauIJ(i1, j1).setFigure(cases.getFigure());
-           return 1;
-       }
-        else {
-           System.out.println("Vous ne pouvez pas jouer ici !!!!!!!!");
-           return 0;
-       }
+    public void placerCube(int i1, int j1, Cases cases, Plateau plateau) {
+        plateau.getPlateauIJ(i1, j1).setFigure(cases.getFigure());
     }
 
     @Override

@@ -160,7 +160,7 @@ public class Plateau {
       */
 
     public void bougerPiece(int i,int j,int i1, int j1) {
-
+    //4,1,0,1
         //test si la case choisie est sur un coté horizontal
         if (i == 0 || i == 4) {
             //test si la deuxieme case choisie est sur la même ligne que la 1er
@@ -181,7 +181,7 @@ public class Plateau {
                         plateau[k-1][j].setFigure(plateau[k][j].getFigure());
                     }
                 }else if (i>i1){
-                    for (int k=i1-1; k>=0 ; k--){
+                    for (int k=i-1; k>=0 ; k--){
                         plateau[k+1][j].setFigure(plateau[k][j].getFigure());
                     }
                 }
@@ -196,7 +196,7 @@ public class Plateau {
                     }
                 }else if(i>i1){
                     for (int k=i-1; k>=0 ; k-- ) {
-                        plateau[k][j].setFigure(plateau[k][j].getFigure());
+                        plateau[k+1][j].setFigure(plateau[k][j].getFigure());
                     }
                 }
             }else if (i==i1){
@@ -205,7 +205,7 @@ public class Plateau {
                         plateau[i][k-1].setFigure(plateau[i][k].getFigure());
                     }
                 }else if (j>j1){
-                    for (int k=j1-1; k>=0 ; k--){
+                    for (int k=j-1; k>=0 ; k--){
                         plateau[i][k+1].setFigure(plateau[i][k].getFigure());
                     }
                 }
@@ -255,7 +255,10 @@ public class Plateau {
     *   Méthodes set                                         *
     * ------------------------------------------------------*/
 
-    public void setPlateauIJ(int i, int j,int figure) {
+    public void setPlateauIJ(int i, int j,Cases cases) {
+        plateau[i][j].setFigure(cases.getFigure());
+    }
+    public void setPlateauIJFigure(int i, int j,int figure) {
         plateau[i][j].setFigure(figure);
     }
 

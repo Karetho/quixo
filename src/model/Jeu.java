@@ -113,7 +113,7 @@ public class Jeu {
     
     
     //Faire une boucle de jeu (while cdt de victoire est false)
-    public void jouer(){
+    /*public void jouer(){
         Cases casestemp;
         Joueurs joueur1,joueur2;
         int verif,i,j,k,l,peutJouer;
@@ -134,6 +134,7 @@ public class Jeu {
         *   3) On fait d'abord bouger les pieces pour que le joueur puisse mettre son cube a à i1,j1 qui est un choix valide
         *   4) On place finalement le cube aux coordonnée i1,j1 choisi par le joueur
          */
+    /*
         while(verif == 0){
             //tour du joueur 1
             System.out.println("Au tour du joueur 1");
@@ -262,7 +263,7 @@ public class Jeu {
             System.out.println("");
         }
         System.out.println("_____________________________");
-        jeu.jouer();
+        //jeu.jouer();
     }
 }
 
