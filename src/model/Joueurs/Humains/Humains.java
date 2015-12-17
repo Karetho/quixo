@@ -68,10 +68,6 @@ public class Humains extends Joueurs {
         }
     }
 
-    @Override
-    public void changerFigure() {
-
-    }
 
     //Renvoit le nom de la figure selon le chiffre de <figure>
     private String tradFigure(int figure) {
@@ -95,6 +91,8 @@ public class Humains extends Joueurs {
         infosHumain = "Nom : " + this.nomJoueur + "\nFigure : " + this.nomFigure + "\nDeja joué : " + this.dejaJoue;
         return infosHumain;
     }
+
+
 
 
 }

@@ -60,6 +60,8 @@ public class Jeu {
         }
         return null;
     }
+
+    //pas utilisée
     public void setFigureJoueur(Joueurs joueurs, int figure){
         joueurs.setFigure(figure);
         if(joueurs == j1){
@@ -87,7 +89,7 @@ public class Jeu {
     
     // Choisi le joueur qui commence et qui choisi sa figure
     // retourne le joueur qui commence
-    public Joueurs choixFigureJoueur(Joueurs j1, Joueurs j2) {
+    /*public Joueurs choixFigureJoueur(Joueurs j1, Joueurs j2) {
         Joueurs joueurs;
         int figure;
         joueurs = choixJoueurCommence(j1,j2);
@@ -101,8 +103,9 @@ public class Jeu {
         }
         setFigureJoueur(joueurs,figure);
         return joueurs;
-    }
+    }*/
 
+    //pas encore utilisée
     public void nombreManche() {
         int manche;
         manche = new Scanner(System.in).nextInt();

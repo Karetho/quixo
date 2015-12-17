@@ -43,8 +43,6 @@ public abstract class Joueurs {
 
     public abstract Cases verifCube(int i, int j, Plateau plateau);
 
-    public abstract void changerFigure();
-
     public abstract String toString();
 
     /* -----------------------------------------------------*
@@ -59,6 +57,10 @@ public abstract class Joueurs {
 
     public boolean getDejaJoue() {
         return dejaJoue;
+    }
+
+    public String getNomFigure() {
+        return nomFigure;
     }
 
     /* -----------------------------------------------------*
