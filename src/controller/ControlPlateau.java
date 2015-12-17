@@ -7,8 +7,13 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.command.BasicCommand;
 import org.newdawn.slick.command.Command;
 import org.newdawn.slick.opengl.SlickCallable;
+import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.util.Log;
 import view.Fenetre;
+import view.Fin_v;
+import view.Jeu_v;
 
+import javax.swing.*;
 import java.util.List;
 
 /**
@@ -19,13 +24,16 @@ public class ControlPlateau {
     private Plateau plateau;
     int oldX,oldY,x,y,i = 1;
     private Cases caseTemp;
+    private Image background;
 
     public ControlPlateau(Plateau plateau, Jeu jeu){
         this.plateau = plateau;
         this.jeu = jeu;
     }
-    public void clickCases(GameContainer gc) throws SlickException {
+    public void clickCases(GameContainer gc, Graphics g, StateBasedGame stateBasedGame) throws SlickException {
         Input input = gc.getInput();
+        background = new Image("image/Fond.jpg");
+
         // On prends les coordonnées en x et y du click de la souris
         // x = axe des i dans le plateau niveau model
         // y = axe des j dans le plateau niveau model
@@ -109,6 +117,11 @@ public class ControlPlateau {
                 }
             }
             if(plateau.verifVictoireJoueurFigure() != 0){
+
+                stateBasedGame.enterState(Fin_v.ID);
+                //gc.pause();
+                //gc.exit();
+
                 System.out.println("Gagné");
             }
         }

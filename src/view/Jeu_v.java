@@ -3,9 +3,11 @@ package view;
 import controller.ControlPlateau;
 import model.Jeu;
 import model.Plateau;
+import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.util.Log;
 
 /**
  * Created by Roland on 12-Dec-15.
@@ -50,6 +52,7 @@ public class Jeu_v extends BasicGameState {
 
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
+        controlPlateau.clickCases(gameContainer,graphics, stateBasedGame);
         background.draw(0,0,gameContainer.getHeight(),gameContainer.getWidth());
         for (int i = 0; i < 500;i = i + 100){
             for (int j = 0; j<500 ; j = j + 100){
@@ -89,7 +92,8 @@ public class Jeu_v extends BasicGameState {
      */
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
-        controlPlateau.clickCases(gameContainer);
+
+
         if (x>=0&&y==0){
             x+=0.50;
         }
@@ -102,6 +106,16 @@ public class Jeu_v extends BasicGameState {
         if (x==0&& y<=600){
             y-=0.50;
         }
+//           ImageABouger = new Image(Math.floorDiv(Mouse.getDX(),),);
+//
+//        public int Arrondir(float n){
+//            n=n/100;
+//
+//            Math.round(n);
+//            n=(int)n*100;
+//            return n;
+//        }
+
 
 /*
         Faire une fonction qui : regarde par rapport au deuxieme click si le x ou le y est compris entre celui
@@ -111,9 +125,7 @@ public class Jeu_v extends BasicGameState {
 
         LA METHODE POUR ARRONDIR
 
-        public int Arrondir(float n){
-        return Math.round(n);
-    }
+
 
 
 
