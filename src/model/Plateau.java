@@ -123,7 +123,7 @@ public class Plateau {
         //Le cube déplacé est dans la bordure du bas
         else if(i == 4 && (j < 4 && j > 0)){
             retour.add(new int[]{0,j});
-            retour.add(new int[]{0,4});
+            retour.add(new int[]{4,0});
             retour.add(new int[]{4,4});
         }
         //Le cube déplacé est dans la bordure de gauche
