@@ -62,11 +62,11 @@ public class ControlPlateau {
                     List<int[]> choix = plateau.choixPossible(Math.floorDiv(oldX, 100), Math.floorDiv(oldY, 100));
                     // faire sous oldX et oldY les anciennes coordonnées du premier clic
                     if(Math.floorDiv(oldX, 100) != Math.floorDiv(x, 100) || Math.floorDiv(oldY, 100) != Math.floorDiv(y, 100)){
-                        plateau.bougerPiece(Math.floorDiv(oldX, 100),Math.floorDiv(oldY, 100),Math.floorDiv(x, 100), Math.floorDiv(y, 100));
                         if(jeu.getJ1().getDejaJoue()){
                             //prendre le cube et le placer autre part pour pousser les cubes (jouerCoup)
                             for (int j = 0; j < choix.size(); j++) {
                                 if(choix.get(j)[0] == Math.floorDiv(x, 100) && choix.get(j)[1] == Math.floorDiv(y, 100)){
+                                    plateau.bougerPiece(Math.floorDiv(oldX, 100),Math.floorDiv(oldY, 100),Math.floorDiv(x, 100), Math.floorDiv(y, 100));
                                     plateau.setPlateauIJ(Math.floorDiv(x,100),Math.floorDiv(y,100),jeu.getJ2().getFigure());
                                     jeu.getJ1().setDejaJoue(false);
                                     jeu.getJ2().setDejaJoue(true);
@@ -78,6 +78,7 @@ public class ControlPlateau {
                         }else if(jeu.getJ2().getDejaJoue()) {
                             for (int j = 0; j < choix.size(); j++) {
                                 if(choix.get(j)[0] == Math.floorDiv(x, 100) && choix.get(j)[1] == Math.floorDiv(y, 100)){
+                                    plateau.bougerPiece(Math.floorDiv(oldX, 100),Math.floorDiv(oldY, 100),Math.floorDiv(x, 100), Math.floorDiv(y, 100));
                                     plateau.setPlateauIJ(Math.floorDiv(x,100),Math.floorDiv(y,100),jeu.getJ1().getFigure());
                                     jeu.getJ2().setDejaJoue(false);
                                     jeu.getJ1().setDejaJoue(true);
@@ -87,6 +88,8 @@ public class ControlPlateau {
                                 }
                             }
                         }
+                    }else{
+                        i = 2;
                         System.out.println("Peut pas jouer");
                     }
                 }
