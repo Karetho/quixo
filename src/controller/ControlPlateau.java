@@ -91,6 +91,9 @@ public class ControlPlateau {
                     }
                 }
             }
+            if(plateau.verifVictoireJoueurFigure() != 0){
+                System.out.println("Gagné");
+            }
         }
     }
 }
