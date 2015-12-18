@@ -21,18 +21,18 @@ public class ControlMenu {
         this.jeu = jeu;
     }
     public void choixFigure(int x, int y,Joueurs joueur,StateBasedGame game){
-        if((x > 150 && x < 250) && (y > 300 && y < 400)){
+        if((x > 400 && x < 500) && (y > 300 && y < 400)){
             if (joueur == jeu.getJ1()) {
-                jeu.getJ2().setFigure(2);;
+                jeu.getJ2().setFigure(2);
             } else if (joueur == jeu.getJ2()) {
                 jeu.getJ1().setFigure(2);
             }
             joueur.setFigure(1);
             game.enterState(Jeu_v.ID);
         }
-        else if((x > 400 && x < 500) && (y > 300 && y < 400)){
+        else if((x > 700 && x < 800) && (y > 300 && y < 400)){
             if (joueur == jeu.getJ1()) {
-                jeu.getJ2().setFigure(1);;
+                jeu.getJ2().setFigure(1);
             } else if (joueur == jeu.getJ2()) {
                 jeu.getJ1().setFigure(1);
             }
@@ -42,7 +42,7 @@ public class ControlMenu {
     }
     public void choisirFigure(GameContainer gc, StateBasedGame game,Joueurs joueur){
         Input input = gc.getInput();
-        // On prends les coordonnées en x et y du click de la souris
+        // On prend les coordonnées en x et y du clic de la souris
         x = input.getMouseX();
         y = input.getMouseY();
         // x = axe des i dans le plateau niveau model

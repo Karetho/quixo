@@ -43,12 +43,12 @@ class Menu_v extends BasicGameState {
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
         this.game = stateBasedGame;
         // il faut rajouter un background propre si possible
-        background = new Image("image/Fond.jpg");
-        caseRond = new Image("image/caseRond.png");
-        caseCroix = new Image("image/caseCroix.png");
+        background = new Image("image/debut.jpg");
+        caseRond = new Image("image/rond.png");
+        caseCroix = new Image("image/croix.png");
         setInput(new Input(Input.MOUSE_LEFT_BUTTON));
         joueur = jeu.choixJoueurCommence(jeu.getJ1(),jeu.getJ2());
-        font1 = new Font("Times New Roman", java.awt.Font.BOLD, 35);
+        font1 = new Font("Comic Sans MS", java.awt.Font.BOLD, 35);
         font = new TrueTypeFont(font1, false);
     }
     /*
@@ -57,13 +57,13 @@ class Menu_v extends BasicGameState {
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
         background.draw(0, 0, gameContainer.getWidth(), gameContainer.getHeight());
-        caseRond.draw(150,300);
-        caseCroix.draw(400,300);
+        caseRond.draw(400,300);
+        caseCroix.draw(700,300);
         //graphics.setColor(Color.red);
         //graphics.drawString(joueur.getNomJoueur()+" commence la partie",200,200);
-        font.drawString(200,200,joueur.getNomJoueur()+" commence la partie",Color.blue);
+        font.drawString(400,150,joueur.getNomJoueur()+" commence la partie",Color.white);
         //graphics.drawString("Appuyez sur une des cases pour choisir votre figure",200,250);
-        font.drawString(200,250,"Appuyez sur une des cases pour choisir votre figure",Color.blue);
+        font.drawString(200,250,"Il appuie sur une des cases pour choisir sa figure",Color.white);
     }
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {

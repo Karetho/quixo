@@ -38,14 +38,14 @@ public class Jeu_v extends BasicGameState {
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
         game = stateBasedGame;
         bouger = new Image("image/Troll.jpg");
-        caseNeutre = new Image("image/caseNeutre.png");
-        caseRond = new Image("image/caseRond.png");
-        caseCroix = new Image("image/caseCroix.png");
+        caseNeutre = new Image("image/neige.png");
+        caseRond = new Image("image/rond.png");
+        caseCroix = new Image("image/croix.png");
         flecheDroite = new Image("image/FlecheDroite.png");
         flecheGauche = new Image("image/FlecheGauche.png");
         flecheHaut = new Image("image/FlecheHaut.png");
-        background = new Image("image/Fond.jpg");
         flecheBas = new Image("image/FlecheBas.png");
+        background = new Image("image/Test.jpg");
         Input input = new Input(Input.MOUSE_LEFT_BUTTON);
         setInput(input);
     }
@@ -70,7 +70,7 @@ public class Jeu_v extends BasicGameState {
         if(jeu.getJ1().getDejaJoue()){
             graphics.drawString(jeu.getJ2().getNomJoueur()+" de jouer",800,200);
         }else if(jeu.getJ2().getDejaJoue()){
-            graphics.drawString(jeu.getJ1().getNomJoueur()+" de Jouer",800,200);
+            graphics.drawString(jeu.getJ1().getNomJoueur()+" de jouer",800,200);
         }
         graphics.setColor(Color.white);
         graphics.drawString(jeu.getJ1().getNomJoueur(),725,250);

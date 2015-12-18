@@ -45,8 +45,8 @@ public class Fin_v extends BasicGameState {
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
         this.game = stateBasedGame;
         // il faut rajouter un background propre si possible
-        background = new Image("image/Fond.jpg");
-        Font awtFont = new Font("Times New Roman", Font.BOLD, 50);
+        background = new Image("image/end.jpg");
+        Font awtFont = new Font("Trebuchet", Font.BOLD, 50);
         font = new TrueTypeFont(awtFont, false);
     }
 
@@ -55,15 +55,15 @@ public class Fin_v extends BasicGameState {
         background.draw(0, 0, gameContainer.getWidth(), gameContainer.getHeight());
         choix = plateau.verifVictoireJoueurFigure();
         if (jeu.getJ1().getFigure()==choix){
-            font.drawString(300, 300, "Bravo joueurs 2 as gagne !", Color.black);
+            font.drawString(300, 150, "Bravo, victoire du joueur 1 !", Color.white);
         }
         else {
 //            font.drawString("Bravo joueurs 2 as gagné !", 300, 300);
-            font.drawString(300, 300, "Bravo joueurs 2 as gagne !", Color.black);
+            font.drawString(300, 150, "Bravo, victoire du joueur 2 !", Color.white);
 //            graphics.setColor(Color.black);
         }
-        font.drawString(300, 350, "Appuyez sur Echap pour quitter", Color.black);
-        font.drawString(300, 400, "Appuyez sur Entree pour recommencer", Color.black);
+        font.drawString(300, 570, "Appuyez sur Echap pour quitter", Color.white);
+        font.drawString(230, 620, "Appuyez sur Entree pour recommencer", Color.white);
     }
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
