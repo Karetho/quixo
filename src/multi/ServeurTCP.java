@@ -7,10 +7,10 @@ import java.net.Socket;
 /**
  * Created by Skygi_000 on 11/02/2016.
  */
-public class ServeurTCP extends Thread {
+public class ServeurTCP {
 
     private static BufferedReader br;
-    private static BufferedWriter bw;
+    private static PrintStream ps;
 
     private static ServerSocket serverSocket;
     private static Socket clientSocket;
@@ -22,7 +22,7 @@ public class ServeurTCP extends Thread {
         portServer = port;
     }
 
-    public void run() {
+    public void start() {
         //Création de la socket du serveur
         serverSocket = null;
         try {
@@ -47,10 +47,12 @@ public class ServeurTCP extends Thread {
 
         //Création flux entrée/sortie
         br = null;
-        bw = null;
+        ps = null;
         try {
             br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            bw = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
+            ps = new PrintStream(clientSocket.getOutputStream());
+            System.out.println("clientSocket = " + clientSocket.getLocalPort());
+            System.out.println("serverSocket = " + serverSocket.getLocalPort());
             System.out.println("Flux créés");
         } catch (IOException e) {
             System.err.println("Erreur lors de la création des flux entrée/sortie");
@@ -63,25 +65,34 @@ public class ServeurTCP extends Thread {
 
             try {
                 message = br.readLine();
-                System.out.println("message = " + message);
-                bw.write("Bienvenu client");
-                if (!message.isEmpty())
-                    bw.write("J'ai bien recu votre message\n"+message);
-
             } catch (IOException e) {
-                System.err.println("Erreur lors de la lecture du message");
+                e.printStackTrace();
+            }
+
+                if (message != null && !message.isEmpty()) {
+                    System.out.println("message = " + message);
+                    ps.println("J'ai bien recu votre message\n"+message);
+                }
+
+            ps.println("Bienvenu client");
+            try {
+                System.out.println(br.readLine());
+                deconnexion();
+                break;
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }
 
-    public void deconnexion() {
+    private void deconnexion() {
         //Fermeture des flux et des sockets
         try {
             if (br != null) {
                 br.close();
             }
-            if (bw != null) {
-                bw.close();
+            if (ps != null) {
+                ps.close();
             }
             if (clientSocket != null) {
                 clientSocket.close();
@@ -94,30 +105,9 @@ public class ServeurTCP extends Thread {
         }
     }
 
-    public static BufferedReader getBr() {
-        return br;
-    }
-
-    public static void setBr(BufferedReader br) {
-        ServeurTCP.br = br;
-    }
-
-    public static BufferedWriter getBw() {
-        return bw;
-    }
-
-    public static void setBw(BufferedWriter bw) {
-        ServeurTCP.bw = bw;
-    }
-
-    public static int getPortServer() {
-        return portServer;
-    }
-
     public static void main(String[] args) {
         ServeurTCP serveurTCP = new ServeurTCP(5000);
 
         serveurTCP.start();
-        //serveurTCP.deconnexion();
     }
 }

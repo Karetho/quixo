@@ -7,23 +7,23 @@ import java.net.UnknownHostException;
 /**
  * Created by Skygi_000 on 11/02/2016.
  */
-public class ClientTCP extends Thread {
+public class ClientTCP{
 
     private static Socket socket;
 
     private static BufferedReader br;
-    private static BufferedWriter bw;
+    private static PrintStream ps;
 
     private static int portClient;
     private static String iperveur;
 
-    public ClientTCP(int port, String ip) {
+    public ClientTCP(String ip) {
         //Constructeur ClientTCP
-        portClient = port;
+        portClient = 5000;
         iperveur = ip;
     }
 
-    public void run() {
+    public void start() {
         //Création socket
         socket = null;
 
@@ -41,11 +41,11 @@ public class ClientTCP extends Thread {
 
         //Création flux entrée/sortie
         br = null;
-        bw = null;
+        ps = null;
         try {
             br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-            System.out.print("flux créés");
+            ps = new PrintStream(socket.getOutputStream());
+            System.out.println("flux créés");
         } catch (IOException e) {
             System.err.println("Erreur création flux" + e);
         }
@@ -54,23 +54,28 @@ public class ClientTCP extends Thread {
             String message = "Bonjour Serveur";
             System.out.println("message = " + message);
             try {
-                bw.write(message);
-                System.out.print(br.readLine());
-                System.out.print(br.readLine());
+                ps.println(message);
+                System.out.println(br.readLine());
+                System.out.println(br.readLine());
+                message = "Au revoir serveur";
+                System.out.println(message);
+                ps.print(message);
+                deconnexion();
+                break;
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public void deconnexion() {
+   private void deconnexion() {
         //Fermeture des flux et des sockets
         try {
             if (br != null) {
                 br.close();
             }
-            if (bw != null) {
-                bw.close();
+            if (ps != null) {
+                ps.close();
             }
            if (socket != null) {
                socket.close();
@@ -82,10 +87,10 @@ public class ClientTCP extends Thread {
 
     public static void main(String[] args) {
 
-        ClientTCP clientTCP = new ClientTCP(5000,"localhost");
+        ClientTCP clientTCP = new ClientTCP("localhost");
 
 
         clientTCP.start();
-        //clientTCP.deconnexion();
+
     }
 }
