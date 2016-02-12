@@ -17,11 +17,13 @@ public class Humains extends Joueurs {
     public Humains() {
         super("Humain");
         figure = 0;
+        typeId = 0;
     }
 
     public Humains(String s) {
         super(s);
         figure = 0;
+        typeId = 0;
     }
 
      /* -----------------------------------------------------*

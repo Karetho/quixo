@@ -75,7 +75,7 @@ public class Fin_v extends BasicGameState {
                 }
             }
             Joueurs joueur = jeu.choixJoueurCommence(jeu.getJ1(),jeu.getJ2());
-            controlMenu.choisirFigure(gameContainer,stateBasedGame,joueur);
+            controlMenu.choisirFigure(gameContainer,stateBasedGame);
             stateBasedGame.enterState(0);
         }
         if(input.isKeyPressed(Input.KEY_ESCAPE)){

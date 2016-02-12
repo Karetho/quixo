@@ -2,6 +2,7 @@ package view;
 
 import controller.ControlPlateau;
 import model.Jeu;
+import model.Joueurs.IA;
 import model.Plateau;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
@@ -52,7 +53,12 @@ public class Jeu_v extends BasicGameState {
 
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
-        controlPlateau.clickCases(gameContainer,graphics, stateBasedGame);
+        if  (jeu.getJ2() instanceof IA) {
+            controlPlateau.clickCasesIa(gameContainer,graphics, stateBasedGame);
+        }else {
+            controlPlateau.clickCases(gameContainer,graphics, stateBasedGame);
+        }
+
         background.draw(0,0,gameContainer.getHeight(),gameContainer.getWidth());
         for (int i = 0; i < 500;i = i + 100){
             for (int j = 0; j<500 ; j = j + 100){

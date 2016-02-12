@@ -20,7 +20,7 @@ import java.awt.Font;
 class Menu_v extends BasicGameState {
     //le menu a un ID de 0
     public static final int ID = 0;
-    private Image background,caseRond,caseCroix;
+    private Image background,caseRond,caseCroix,iaChoice;
     private StateBasedGame game;
     private ControlMenu controlMenu;
     private Jeu jeu;
@@ -46,8 +46,8 @@ class Menu_v extends BasicGameState {
         background = new Image("image/debut.jpg");
         caseRond = new Image("image/rond.png");
         caseCroix = new Image("image/croix.png");
+        iaChoice = new Image("image/iaChoice.jpg");
         setInput(new Input(Input.MOUSE_LEFT_BUTTON));
-        joueur = jeu.choixJoueurCommence(jeu.getJ1(),jeu.getJ2());
         font1 = new Font("Comic Sans MS", java.awt.Font.BOLD, 35);
         font = new TrueTypeFont(font1, false);
     }
@@ -59,14 +59,14 @@ class Menu_v extends BasicGameState {
         background.draw(0, 0, gameContainer.getWidth(), gameContainer.getHeight());
         caseRond.draw(400,300);
         caseCroix.draw(700,300);
+        iaChoice.draw(500,450);
         //graphics.setColor(Color.red);
         //graphics.drawString(joueur.getNomJoueur()+" commence la partie",200,200);
-        font.drawString(400,150,joueur.getNomJoueur()+" commence la partie",Color.white);
         //graphics.drawString("Appuyez sur une des cases pour choisir votre figure",200,250);
-        font.drawString(200,250,"Il appuie sur une des cases pour choisir sa figure",Color.white);
+        font.drawString(200,250,"Le joueur n°1 appuie sur une des cases pour choisir sa figure",Color.white);
     }
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
-        controlMenu.choisirFigure(gameContainer,game,joueur);
+        controlMenu.choisirFigure(gameContainer,game);
     }
 }

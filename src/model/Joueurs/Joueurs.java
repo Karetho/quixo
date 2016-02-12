@@ -63,6 +63,8 @@ public abstract class Joueurs {
         return nomFigure;
     }
 
+    public int getTypeId() { return typeId; }
+
     /* -----------------------------------------------------*
     *   Méthodes set                                        *
     * ------------------------------------------------------*/
@@ -76,4 +78,6 @@ public abstract class Joueurs {
     public void setFigure(int figure) {
         this.figure = figure;
     }
+
+    public void setTypeId(int id){ this.typeId=id; }
 }

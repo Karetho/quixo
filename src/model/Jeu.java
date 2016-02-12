@@ -1,6 +1,7 @@
 package model;
 
 import model.Joueurs.Humains.Humains;
+import model.Joueurs.IA;
 import model.Joueurs.Joueurs;
 import org.lwjgl.Sys;
 
@@ -33,7 +34,12 @@ public class Jeu {
         j2 = h2;
         plateau = new Plateau();
     }
-    
+
+    public Jeu( ) {
+
+    }
+
+
     /* -----------------------------------------------------*
     *   Méthodes                                            *
     * ------------------------------------------------------*/
@@ -251,6 +257,16 @@ public class Jeu {
     
     public void setManche(int manche) {
         this.nbManches = manche;
+    }
+
+    public void setJoueurs(Humains h1, Humains h2){
+        j1 = h1;
+        j2 = h2;
+    }
+
+    public void setJoueurIa(Humains h1, IA ia) {
+        j1 = h1;
+        j2 = ia;
     }
     
     
