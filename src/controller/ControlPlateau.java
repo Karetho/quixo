@@ -193,8 +193,8 @@ public class ControlPlateau {
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
-                                x = random.nextInt(5);
-                                y = random.nextInt(5);
+                                int x = random.nextInt(5);
+                                int y = random.nextInt(5);
                                 System.out.println("Le bot joue");
                                 caseTemp = null;
                                 while (caseTemp == null) {
