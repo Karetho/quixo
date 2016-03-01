@@ -5,6 +5,8 @@ import model.Joueurs.Humains.Humains;
 import model.Joueurs.IA;
 import model.Joueurs.Joueurs;
 import model.Plateau;
+import multi.ClientTCP;
+import multi.ServeurTCP;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -50,6 +52,11 @@ public class ControlMenu {
             jeu.getJ2().setFigure(2);
 
             game.enterState(Jeu_v.ID);
+        }
+        else if ((x > 750 && x < 850) && (y > 450 && y < 550)) {
+            ServeurTCP serveurTCP = new ServeurTCP(5000);
+
+            serveurTCP.start();
         }
     }
     public void choisirFigure(GameContainer gc, final StateBasedGame game){

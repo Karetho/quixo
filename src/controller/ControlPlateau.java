@@ -1,21 +1,12 @@
 package controller;
 
-import jdk.internal.cmm.SystemResourcePressureImpl;
 import model.Cases;
 import model.Jeu;
-import model.Joueurs.IA;
 import model.Plateau;
 import org.newdawn.slick.*;
-import org.newdawn.slick.command.BasicCommand;
-import org.newdawn.slick.command.Command;
-import org.newdawn.slick.opengl.SlickCallable;
 import org.newdawn.slick.state.StateBasedGame;
-import org.newdawn.slick.util.Log;
-import view.Fenetre;
 import view.Fin_v;
-import view.Jeu_v;
 import java.lang.Math;
-import javax.swing.*;
 import java.util.List;
 import java.util.Random;
 
