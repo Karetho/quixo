@@ -250,7 +250,11 @@ public class Jeu {
     public Joueurs getJ2() {
         return j2;
     }
-    
+
+    public Plateau getPlateau() {
+        return plateau;
+    }
+
     /* -----------------------------------------------------*
     *   Méthodes set                                         *
     * ------------------------------------------------------*/

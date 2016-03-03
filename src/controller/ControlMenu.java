@@ -54,9 +54,6 @@ public class ControlMenu {
             game.enterState(Jeu_v.ID);
         }
         else if ((x > 750 && x < 850) && (y > 450 && y < 550)) {
-            ServeurTCP serveurTCP = new ServeurTCP(5000);
-
-            serveurTCP.start();
         }
     }
     public void choisirFigure(GameContainer gc, final StateBasedGame game){

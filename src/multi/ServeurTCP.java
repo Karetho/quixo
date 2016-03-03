@@ -1,25 +1,32 @@
 package multi;
 
+import model.Jeu;
+import model.Joueurs.Humains.Humains;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Objects;
 
 /**
  * Created by Skygi_000 on 11/02/2016.
  */
 public class ServeurTCP {
 
-    private static BufferedReader br;
-    private static PrintStream ps;
+    private static ObjectInputStream ois;
+    private static ObjectOutputStream oos;
 
     private static ServerSocket serverSocket;
     private static Socket clientSocket;
 
+    private Jeu jeu;
+
     private static int portServer;
 
-    public ServeurTCP(int port) {
+    public ServeurTCP(int port, Jeu jeu) {
         //Constructeur ServerTCP
         portServer = port;
+        this.jeu = jeu;
     }
 
     public void start() {
@@ -46,13 +53,11 @@ public class ServeurTCP {
         }
 
         //Création flux entrée/sortie
-        br = null;
-        ps = null;
+        oos = null;
+        ois = null;
         try {
-            br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            ps = new PrintStream(clientSocket.getOutputStream());
-            System.out.println("clientSocket = " + clientSocket.getLocalPort());
-            System.out.println("serverSocket = " + serverSocket.getLocalPort());
+            oos = new ObjectOutputStream(clientSocket.getOutputStream());
+            ois = new ObjectInputStream(clientSocket.getInputStream());
             System.out.println("Flux créés");
         } catch (IOException e) {
             System.err.println("Erreur lors de la création des flux entrée/sortie");
@@ -61,26 +66,76 @@ public class ServeurTCP {
         //Boucle principale
         while (true) {
 
+            System.out.println("Plateau de jeu : ");
+            for (int i = 0; i < jeu.getPlateau().getDimension_i(); i++) {
+                for (int j = 0; j < jeu.getPlateau().getDimension_j(); j++) {
+                    System.out.print(jeu.getPlateau().getPlateauIJ(i, j).getFigure() + "|");
+                }
+                System.out.println("");
+            }
             String message = "";
 
-            try {
-                message = br.readLine();
+            /*try {
+                message = ois.readUTF();
+                if (message != null && !message.isEmpty()) {
+                    System.out.println("message = " + message);
+                    if (Objects.equals(message, "Au revoir serveur")) {
+                        break;
+                    }
+                    else {
+                        try {
+                            oos.writeChars("J'ai bien recu votre message\n" + message);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }*/
+
+
+            /*try {
+                oos.writeChars("Bienvenu client");
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-                if (message != null && !message.isEmpty()) {
-                    System.out.println("message = " + message);
-                    ps.println("J'ai bien recu votre message\n"+message);
-                }
-
-            ps.println("Bienvenu client");
             try {
-                System.out.println(br.readLine());
+                System.out.println(ois.readUTF());
                 deconnexion();
                 break;
             } catch (IOException e) {
                 e.printStackTrace();
+            }*/
+
+            try {
+                oos.writeObject(jeu.getPlateau());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            System.out.println("au tour du joueur 1");
+            jeu.getPlateau().getPlateauIJ(0,0).setFigure(1);
+            try {
+                oos.writeObject(jeu.getPlateau());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            System.out.println("joueur 1 a joué, au tour du joueur 2 ");
+            try {
+                ois.readObject();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            deconnexion();
+            System.out.println("Plateau de jeu : ");
+            for (int i = 0; i < jeu.getPlateau().getDimension_i(); i++) {
+                for (int j = 0; j < jeu.getPlateau().getDimension_j(); j++) {
+                    System.out.print(jeu.getPlateau().getPlateauIJ(i, j).getFigure() + "|");
+                }
+                System.out.println("");
             }
         }
     }
@@ -88,11 +143,11 @@ public class ServeurTCP {
     private void deconnexion() {
         //Fermeture des flux et des sockets
         try {
-            if (br != null) {
-                br.close();
+            if (oos != null) {
+                oos.close();
             }
-            if (ps != null) {
-                ps.close();
+            if (ois != null) {
+                ois.close();
             }
             if (clientSocket != null) {
                 clientSocket.close();
@@ -106,7 +161,7 @@ public class ServeurTCP {
     }
 
     public static void main(String[] args) {
-        ServeurTCP serveurTCP = new ServeurTCP(5000);
+        ServeurTCP serveurTCP = new ServeurTCP(5000,new Jeu(new Humains("bob"),new Humains("alice")));
 
         serveurTCP.start();
     }

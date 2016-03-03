@@ -1,11 +1,12 @@
 package model;
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
  * Created by bobol on 20/11/15.
  */
-public class Plateau {
+public class Plateau implements Serializable {
 
     /* ------------------------------------------------------
     *   Attributs de la classe Plateau                      *

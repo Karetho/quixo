@@ -1,5 +1,8 @@
 package multi;
 
+
+import model.Plateau;
+
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -11,16 +14,19 @@ public class ClientTCP{
 
     private static Socket socket;
 
-    private static BufferedReader br;
-    private static PrintStream ps;
+    private static ObjectInputStream ois;
+    private static ObjectOutputStream oos;
 
     private static int portClient;
     private static String iperveur;
+
+    private static Plateau plateau;
 
     public ClientTCP(String ip) {
         //Constructeur ClientTCP
         portClient = 5000;
         iperveur = ip;
+        plateau = null;
     }
 
     public void start() {
@@ -40,11 +46,11 @@ public class ClientTCP{
         }
 
         //Création flux entrée/sortie
-        br = null;
-        ps = null;
+        ois = null;
+        oos = null;
         try {
-            br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            ps = new PrintStream(socket.getOutputStream());
+            ois = new ObjectInputStream(socket.getInputStream());
+            oos = new ObjectOutputStream(socket.getOutputStream());
             System.out.println("flux créés");
         } catch (IOException e) {
             System.err.println("Erreur création flux" + e);
@@ -54,15 +60,44 @@ public class ClientTCP{
             String message = "Bonjour Serveur";
             System.out.println("message = " + message);
             try {
-                ps.println(message);
-                System.out.println(br.readLine());
-                System.out.println(br.readLine());
-                message = "Au revoir serveur";
+                /*oos.writeChars(message);
+                System.out.println(ois.readUTF());
+                System.out.println(ois.readUTF());*/
+                plateau = (Plateau) ois.readObject();
+                System.out.println("Plateau de jeu : ");
+                for (int i = 0; i < plateau.getDimension_i(); i++) {
+                    for (int j = 0; j < plateau.getDimension_j(); j++) {
+                        System.out.print(plateau.getPlateauIJ(i, j).getFigure() + "|");
+                    }
+                    System.out.println("");
+                }
+
+                System.out.println("Au tour du joueur 1 ");
+                plateau = (Plateau) ois.readObject();
+                for (int i = 0; i < plateau.getDimension_i(); i++) {
+                    for (int j = 0; j < plateau.getDimension_j(); j++) {
+                        System.out.print(plateau.getPlateauIJ(i, j).getFigure() + "|");
+                    }
+                    System.out.println("");
+                }
+                System.out.println("Le joueur 1 a joué, au tour du joueur 2");
+                plateau.getPlateauIJ(1,1).setFigure(2);
+                oos.writeObject(plateau);
+                System.out.println("Plateau de jeu : ");
+                for (int i = 0; i < plateau.getDimension_i(); i++) {
+                    for (int j = 0; j < plateau.getDimension_j(); j++) {
+                        System.out.print(plateau.getPlateauIJ(i, j).getFigure() + "|");
+                    }
+                    System.out.println("");
+                }
+                /*message = "Au revoir serveur";
                 System.out.println(message);
-                ps.print(message);
+                oos.writeChars(message);*/
                 deconnexion();
                 break;
             } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
         }
@@ -71,11 +106,11 @@ public class ClientTCP{
    private void deconnexion() {
         //Fermeture des flux et des sockets
         try {
-            if (br != null) {
-                br.close();
+            if (ois != null) {
+                ois.close();
             }
-            if (ps != null) {
-                ps.close();
+            if (oos != null) {
+                oos.close();
             }
            if (socket != null) {
                socket.close();

@@ -6,9 +6,10 @@ import model.Plateau;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.StateBasedGame;
 import view.Fin_v;
-import java.lang.Math;
+
 import java.util.List;
 import java.util.Random;
+
 
 /**
  * Created by Roland on 04-Dec-15.

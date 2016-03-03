@@ -1,9 +1,11 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * Created by nicolas on 20/11/2015.
  */
-public class Cases  {
+public class Cases  implements Serializable{
 
     /* ------------------------------------------------------
     *   Attributs de la classe Plateau                      *
