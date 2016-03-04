@@ -22,6 +22,7 @@ public class ControlPlateau {
     private Image background;
     private List<int[]> choix;
     private Random random = new Random();
+    private Boolean jeu_ia = false;
 
     public ControlPlateau(Plateau plateau, Jeu jeu){
         this.plateau = plateau;
@@ -135,7 +136,7 @@ public class ControlPlateau {
         x = input.getMouseX();
         y = input.getMouseY();
         // Verification si le clic est sur la couronne ou pas
-        if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
+        if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON) && !jeu_ia) {
 
 
             if (((x > 500 && x < 600) && (y > 100 && y < 600)) || // colonne de droite
@@ -176,9 +177,11 @@ public class ControlPlateau {
                             }
                         }
 
+
                         Thread bot = new Thread() {
                             @Override
                             public void run() {
+                                jeu_ia = true;
                                 choix = plateau.choixPossible(Math.floorDiv(oldX, 100), Math.floorDiv(oldY, 100));
                                 try {
                                     sleep(1000);
@@ -222,11 +225,13 @@ public class ControlPlateau {
                                 i = 1;
                                 jeu.getJ1().setDejaJoue(false);
                                 jeu.getJ2().setDejaJoue(true);
+                                jeu_ia = false;
 
                             }
 
                         };
                         bot.start();
+
 
                         if (plateau.verifVictoireJoueurFigure() != 0) {
 
