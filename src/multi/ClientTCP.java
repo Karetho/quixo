@@ -49,7 +49,7 @@ public class ClientTCP{
         ois = null;
         oos = null;
         try {
-            ois = new ObjectInputStream(socket.getInputStream());
+            ois = new ObjectInputStream(new BufferedInputStream(socket.getInputStream()));
             oos = new ObjectOutputStream(socket.getOutputStream());
             System.out.println("flux créés");
         } catch (IOException e) {
@@ -57,14 +57,9 @@ public class ClientTCP{
         }
 
         while (true) {
-            String message = "Bonjour Serveur";
-            System.out.println("message = " + message);
             try {
-                /*oos.writeChars(message);
-                System.out.println(ois.readUTF());
-                System.out.println(ois.readUTF());*/
                 plateau = (Plateau) ois.readObject();
-                System.out.println("Plateau de jeu : ");
+                System.out.println("Plateau de jeu initial : ");
                 for (int i = 0; i < plateau.getDimension_i(); i++) {
                     for (int j = 0; j < plateau.getDimension_j(); j++) {
                         System.out.print(plateau.getPlateauIJ(i, j).getFigure() + "|");
@@ -90,10 +85,9 @@ public class ClientTCP{
                     }
                     System.out.println("");
                 }
-                /*message = "Au revoir serveur";
-                System.out.println(message);
-                oos.writeChars(message);*/
-                deconnexion();
+                if (socket.isClosed()) {
+                    deconnexion();
+                }
                 break;
             } catch (IOException e) {
                 e.printStackTrace();
@@ -101,6 +95,7 @@ public class ClientTCP{
                 e.printStackTrace();
             }
         }
+        deconnexion();
     }
 
    private void deconnexion() {

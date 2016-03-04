@@ -57,7 +57,7 @@ public class ServeurTCP {
         ois = null;
         try {
             oos = new ObjectOutputStream(clientSocket.getOutputStream());
-            ois = new ObjectInputStream(clientSocket.getInputStream());
+            ois = new ObjectInputStream(new BufferedInputStream(clientSocket.getInputStream()));
             System.out.println("Flux créés");
         } catch (IOException e) {
             System.err.println("Erreur lors de la création des flux entrée/sortie");
@@ -65,77 +65,36 @@ public class ServeurTCP {
 
         //Boucle principale
         while (true) {
-
-            System.out.println("Plateau de jeu : ");
-            for (int i = 0; i < jeu.getPlateau().getDimension_i(); i++) {
-                for (int j = 0; j < jeu.getPlateau().getDimension_j(); j++) {
-                    System.out.print(jeu.getPlateau().getPlateauIJ(i, j).getFigure() + "|");
-                }
-                System.out.println("");
-            }
-            String message = "";
-
-            /*try {
-                message = ois.readUTF();
-                if (message != null && !message.isEmpty()) {
-                    System.out.println("message = " + message);
-                    if (Objects.equals(message, "Au revoir serveur")) {
-                        break;
-                    }
-                    else {
-                        try {
-                            oos.writeChars("J'ai bien recu votre message\n" + message);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }*/
-
-
-            /*try {
-                oos.writeChars("Bienvenu client");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            try {
-                System.out.println(ois.readUTF());
-                deconnexion();
-                break;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }*/
-
             try {
                 oos.writeObject(jeu.getPlateau());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+                System.out.println("Plateau de jeu initial : ");
+                for (int i = 0; i < jeu.getPlateau().getDimension_i(); i++) {
+                    for (int j = 0; j < jeu.getPlateau().getDimension_j(); j++) {
+                        System.out.print(jeu.getPlateau().getPlateauIJ(i, j).getFigure() + "|");
+                    }
+                    System.out.println("");
+                }
 
-            System.out.println("au tour du joueur 1");
-            jeu.getPlateau().getPlateauIJ(0,0).setFigure(1);
-            try {
+                System.out.println("au tour du joueur 1");
+                jeu.getPlateau().getPlateauIJ(0, 0).setFigure(1);
                 oos.writeObject(jeu.getPlateau());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            System.out.println("joueur 1 a joué, au tour du joueur 2 ");
-            try {
+                for (int i = 0; i < jeu.getPlateau().getDimension_i(); i++) {
+                    for (int j = 0; j < jeu.getPlateau().getDimension_j(); j++) {
+                        System.out.print(jeu.getPlateau().getPlateauIJ(i, j).getFigure() + "|");
+                    }
+                    System.out.println("");
+                }
+                System.out.println("joueur 1 a joué, au tour du joueur 2 ");
                 ois.readObject();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-            deconnexion();
-            System.out.println("Plateau de jeu : ");
-            for (int i = 0; i < jeu.getPlateau().getDimension_i(); i++) {
-                for (int j = 0; j < jeu.getPlateau().getDimension_j(); j++) {
-                    System.out.print(jeu.getPlateau().getPlateauIJ(i, j).getFigure() + "|");
+                System.out.println("Plateau de jeu : ");
+                for (int i = 0; i < jeu.getPlateau().getDimension_i(); i++) {
+                    for (int j = 0; j < jeu.getPlateau().getDimension_j(); j++) {
+                        System.out.print(jeu.getPlateau().getPlateauIJ(i, j).getFigure() + "|");
+                    }
+                    System.out.println("");
                 }
-                System.out.println("");
+            }catch (Exception e) {
+                e.getStackTrace();
             }
         }
     }
