@@ -13,18 +13,19 @@ import java.util.Objects;
  */
 public class ServeurTCP {
 
-    private static ObjectInputStream ois;
-    private static ObjectOutputStream oos;
+    private static DataInputStream dis;
+    private static DataOutputStream dos;
 
     private static ServerSocket serverSocket;
     private static Socket clientSocket;
 
+    private static int coordi,coordj;
     private Jeu jeu;
 
     private static int portServer;
 
     public ServeurTCP(int port, Jeu jeu) {
-        //Constructeur ServerTCP
+        //Constructeur ServerTCP(int port , Jeu jeu)
         portServer = port;
         this.jeu = jeu;
     }
@@ -53,11 +54,11 @@ public class ServeurTCP {
         }
 
         //Création flux entrée/sortie
-        oos = null;
-        ois = null;
+        dos = null;
+        dis = null;
         try {
-            oos = new ObjectOutputStream(clientSocket.getOutputStream());
-            ois = new ObjectInputStream(new BufferedInputStream(clientSocket.getInputStream()));
+            dos = new DataOutputStream(clientSocket.getOutputStream());
+            dis = new DataInputStream(clientSocket.getInputStream());
             System.out.println("Flux créés");
         } catch (IOException e) {
             System.err.println("Erreur lors de la création des flux entrée/sortie");
@@ -66,7 +67,6 @@ public class ServeurTCP {
         //Boucle principale
         while (true) {
             try {
-                oos.writeObject(jeu.getPlateau());
                 System.out.println("Plateau de jeu initial : ");
                 for (int i = 0; i < jeu.getPlateau().getDimension_i(); i++) {
                     for (int j = 0; j < jeu.getPlateau().getDimension_j(); j++) {
@@ -76,8 +76,9 @@ public class ServeurTCP {
                 }
 
                 System.out.println("au tour du joueur 1");
-                jeu.getPlateau().getPlateauIJ(0, 0).setFigure(1);
-                oos.writeObject(jeu.getPlateau());
+                jeu.getPlateau().getPlateauIJ(0,0).setFigure(1);
+                dos.writeInt(0);
+                dos.writeInt(0);
                 for (int i = 0; i < jeu.getPlateau().getDimension_i(); i++) {
                     for (int j = 0; j < jeu.getPlateau().getDimension_j(); j++) {
                         System.out.print(jeu.getPlateau().getPlateauIJ(i, j).getFigure() + "|");
@@ -85,7 +86,9 @@ public class ServeurTCP {
                     System.out.println("");
                 }
                 System.out.println("joueur 1 a joué, au tour du joueur 2 ");
-                ois.readObject();
+                coordi = dis.readInt();
+                coordj = dis.readInt();
+                jeu.getPlateau().getPlateauIJ(coordi,coordj).setFigure(2);
                 System.out.println("Plateau de jeu : ");
                 for (int i = 0; i < jeu.getPlateau().getDimension_i(); i++) {
                     for (int j = 0; j < jeu.getPlateau().getDimension_j(); j++) {
@@ -102,11 +105,11 @@ public class ServeurTCP {
     private void deconnexion() {
         //Fermeture des flux et des sockets
         try {
-            if (oos != null) {
-                oos.close();
+            if (dis != null) {
+                dis.close();
             }
-            if (ois != null) {
-                ois.close();
+            if (dos != null) {
+                dos.close();
             }
             if (clientSocket != null) {
                 clientSocket.close();

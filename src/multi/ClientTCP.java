@@ -14,8 +14,10 @@ public class ClientTCP{
 
     private static Socket socket;
 
-    private static ObjectInputStream ois;
-    private static ObjectOutputStream oos;
+    private static DataInputStream dis;
+    private static DataOutputStream dos;
+
+    private static  int coordiJ1,coordjJ1;
 
     private static int portClient;
     private static String iperveur;
@@ -23,10 +25,10 @@ public class ClientTCP{
     private static Plateau plateau;
 
     public ClientTCP(String ip) {
-        //Constructeur ClientTCP
+        //Constructeur ClientTCP(String ip) => ip correspond à l'adresse ip du Client
         portClient = 5000;
         iperveur = ip;
-        plateau = null;
+        plateau = new Plateau();
     }
 
     public void start() {
@@ -41,16 +43,16 @@ public class ClientTCP{
             } catch (UnknownHostException e) {
                 System.err.println("Erreur hôte" + e);
             } catch (IOException e) {
-                System.err.println("Erreur Créatioon socket" + e);
+                System.err.println("Erreur Création socket" + e);
             }
         }
 
         //Création flux entrée/sortie
-        ois = null;
-        oos = null;
+        dis = null;
+        dos = null;
         try {
-            ois = new ObjectInputStream(new BufferedInputStream(socket.getInputStream()));
-            oos = new ObjectOutputStream(socket.getOutputStream());
+            dis = new DataInputStream(socket.getInputStream());
+            dos = new DataOutputStream(socket.getOutputStream());
             System.out.println("flux créés");
         } catch (IOException e) {
             System.err.println("Erreur création flux" + e);
@@ -58,7 +60,6 @@ public class ClientTCP{
 
         while (true) {
             try {
-                plateau = (Plateau) ois.readObject();
                 System.out.println("Plateau de jeu initial : ");
                 for (int i = 0; i < plateau.getDimension_i(); i++) {
                     for (int j = 0; j < plateau.getDimension_j(); j++) {
@@ -68,7 +69,9 @@ public class ClientTCP{
                 }
 
                 System.out.println("Au tour du joueur 1 ");
-                plateau = (Plateau) ois.readObject();
+                coordiJ1 = dis.readInt();
+                coordjJ1 = dis.readInt();
+                plateau.getPlateauIJ(coordiJ1,coordjJ1).setFigure(1);
                 for (int i = 0; i < plateau.getDimension_i(); i++) {
                     for (int j = 0; j < plateau.getDimension_j(); j++) {
                         System.out.print(plateau.getPlateauIJ(i, j).getFigure() + "|");
@@ -77,7 +80,8 @@ public class ClientTCP{
                 }
                 System.out.println("Le joueur 1 a joué, au tour du joueur 2");
                 plateau.getPlateauIJ(1,1).setFigure(2);
-                oos.writeObject(plateau);
+                dos.writeInt(1);
+                dos.writeInt(1);
                 System.out.println("Plateau de jeu : ");
                 for (int i = 0; i < plateau.getDimension_i(); i++) {
                     for (int j = 0; j < plateau.getDimension_j(); j++) {
@@ -91,8 +95,6 @@ public class ClientTCP{
                 break;
             } catch (IOException e) {
                 e.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
             }
         }
         deconnexion();
@@ -101,11 +103,11 @@ public class ClientTCP{
    private void deconnexion() {
         //Fermeture des flux et des sockets
         try {
-            if (ois != null) {
-                ois.close();
+            if (dos != null) {
+                dos.close();
             }
-            if (oos != null) {
-                oos.close();
+            if (dis != null) {
+                dis.close();
             }
            if (socket != null) {
                socket.close();
