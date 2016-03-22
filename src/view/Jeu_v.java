@@ -14,8 +14,8 @@ import org.newdawn.slick.util.Log;
  * Created by Roland on 12-Dec-15.
  */
 public class Jeu_v extends BasicGameState {
-    // l'ID 1 correspond a la fenetre de jeu
-    public static final int ID = 1;
+    // l'ID 2 correspond a la fenetre de jeu
+    public static final int ID = 2;
     private StateBasedGame game;
     private ControlPlateau controlPlateau;
     private Jeu jeu;

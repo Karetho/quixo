@@ -17,7 +17,7 @@ import java.awt.Font;
  */
 public class Fin_v extends BasicGameState {
     //le menu a un ID de 0
-    public static final int ID = 2;
+    public static final int ID =3 ;
     private Image background;
     private StateBasedGame game;
     private ControlFin controlFin;

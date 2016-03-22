@@ -1,5 +1,6 @@
 package view;
 
+import controller.ControlAccueil;
 import controller.ControlMenu;
 import model.Jeu;
 import model.Joueurs.Humains.Humains;
@@ -9,6 +10,7 @@ import org.newdawn.slick.Color;
 //import org.newdawn.slick.Font;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.command.Control;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import java.awt.Font;
@@ -17,21 +19,20 @@ import java.awt.Font;
 /**
  * Created by Roland on 12-Dec-15.
  */
-public class Menu_v extends BasicGameState {
-    //le menu a un ID de 0
-    public static final int ID = 1;
-    private Image background,caseRond,caseCroix,iaChoice,multi;
+public class Accueil_v extends BasicGameState {
+    //l'accueil a un ID de 0
+    public static final int ID = 0;
+    private final ControlAccueil controlAccueil;
+    private Image background;
     private StateBasedGame game;
-    private ControlMenu controlMenu;
-    private Jeu jeu;
-    Joueurs joueur = null;
     private TrueTypeFont font;
     private Font font1;
+    private Font font2;
+    private TrueTypeFont font3;
 
 
-    public Menu_v(Jeu jeu,ControlMenu controlMenu){
-        this.jeu = jeu;
-        this.controlMenu = controlMenu;
+    public Accueil_v(ControlAccueil controlAccueil){
+        this.controlAccueil = controlAccueil;
     }
 
     @Override
@@ -41,16 +42,14 @@ public class Menu_v extends BasicGameState {
 
     @Override
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
-        this.game = stateBasedGame;
+        game = stateBasedGame;
         // il faut rajouter un background propre si possible
         background = new Image("image/debut.jpg");
-        caseRond = new Image("image/rond.png");
-        caseCroix = new Image("image/croix.png");
-        iaChoice = new Image("image/iaChoice.jpg");
-        multi = new Image("image/multi.png");
         setInput(new Input(Input.MOUSE_LEFT_BUTTON));
-        font1 = new Font("Comic Sans MS", java.awt.Font.BOLD, 35);
+        font1 = new Font("Comic Sans MS", java.awt.Font.BOLD, 50);
         font = new TrueTypeFont(font1, false);
+        font2 = new Font("Comic Sans MS",Font.BOLD,30);
+        font3 = new TrueTypeFont(font2,false);
     }
     /*
         TODO : Créer une autre vue, faire un autre background plus clair pour le menu
@@ -58,17 +57,20 @@ public class Menu_v extends BasicGameState {
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
         background.draw(0, 0, gameContainer.getWidth(), gameContainer.getHeight());
-        caseRond.draw(400,300);
-        caseCroix.draw(700,300);
-        iaChoice.draw(500,450);
-        multi.draw(750,450);
+        //graphics.draw(background,0,0,gameContainer.getWidth(),gameContainer.getHeight());
+        font.drawString(400,150,"Quixo",Color.white);
+        font3.drawString(600,250,"Solo",Color.white);
+        font3.drawString(600,300,"Multi",Color.white);
+        font3.drawString(600,350,"Quitter",Color.white);
+        //graphics.flush();
+
         //graphics.setColor(Color.red);
         //graphics.drawString(joueur.getNomJoueur()+" commence la partie",200,200);
         //graphics.drawString("Appuyez sur une des cases pour choisir votre figure",200,250);
-        font.drawString(200,250,"Le joueur n°1 appuie sur une des cases pour choisir sa figure",Color.white);
+        //font.drawString(200,250,"Le joueur n°1 appuie sur une des cases pour choisir sa figure",Color.white);
     }
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {
-        controlMenu.choisirFigure(gameContainer,game);
+        controlAccueil.choisirMenu(gameContainer,game);
     }
 }
