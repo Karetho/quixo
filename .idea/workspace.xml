@@ -1,26 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2ccbff89-aefa-4e80-8965-aa90547b9cfc" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\Lucie\Documents\DUT Info\S4\quixo\image\EasterCroix.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\Lucie\Documents\DUT Info\S4\quixo\image\Fond.map" afterPath="" />
-      <change type="DELETED" beforePath="D:\Lucie\Documents\DUT Info\S4\quixo\image\case_croix.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Lucie\Documents\DUT Info\S4\quixo\image\case_neutre.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Lucie\Documents\DUT Info\S4\quixo\image\case_rond.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\Lucie\Documents\DUT Info\S4\quixo\image\sans-titre.tmx" afterPath="" />
-      <change type="DELETED" beforePath="D:\Lucie\Documents\DUT Info\S4\quixo\image\snow-art10.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/image/Test.jpg" afterPath="$PROJECT_DIR$/image/Test.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/image/croix.png" afterPath="$PROJECT_DIR$/image/croix.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/image/debut.jpg" afterPath="$PROJECT_DIR$/image/debut.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/image/end.jpg" afterPath="$PROJECT_DIR$/image/end.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/Accueil_v.java" afterPath="$PROJECT_DIR$/src/view/Accueil_v.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/ControlMenu.java" afterPath="$PROJECT_DIR$/src/controller/ControlMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/Fin_v.java" afterPath="$PROJECT_DIR$/src/view/Fin_v.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/Jeu_v.java" afterPath="$PROJECT_DIR$/src/view/Jeu_v.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/view/Menu_v.java" afterPath="$PROJECT_DIR$/src/view/Menu_v.java" />
+    <list default="true" id="2ccbff89-aefa-4e80-8965-aa90547b9cfc" name="Default" comment="nouveau skin">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\Lucie\Documents\DUT Info\S4\quixo\image\EasterRond.jpg" afterPath="$PROJECT_DIR$/image/rond.png" />
-      <change type="MOVED" beforePath="D:\Lucie\Documents\DUT Info\S4\quixo\image\caseEaster.jpg" afterPath="$PROJECT_DIR$/image/neige.png" />
     </list>
     <ignored path="quixo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -797,7 +779,7 @@
       <workItem from="1458672009201" duration="1129000" />
       <workItem from="1458689344857" duration="209000" />
       <workItem from="1458796535669" duration="10415000" />
-      <workItem from="1458827688354" duration="210000" />
+      <workItem from="1458827688354" duration="253000" />
     </task>
     <task id="LOCAL-00001" summary="ia">
       <created>1455285624679</created>
@@ -817,11 +799,17 @@
       <option name="project" value="LOCAL" />
       <updated>1458824907196</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="nouveau skin">
+      <created>1458827921319</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1458827921319</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15743000" />
+    <option name="totallyTimeSpent" value="15786000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -868,7 +856,8 @@
     <MESSAGE value="ia" />
     <MESSAGE value="changement skin" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="nouveau skin" />
+    <option name="LAST_COMMIT_MESSAGE" value="nouveau skin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
