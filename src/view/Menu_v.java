@@ -65,7 +65,7 @@ public class Menu_v extends BasicGameState {
         //graphics.setColor(Color.red);
         //graphics.drawString(joueur.getNomJoueur()+" commence la partie",200,200);
         //graphics.drawString("Appuyez sur une des cases pour choisir votre figure",200,250);
-        font.drawString(200,250,"Le joueur n°1 appuie sur une des cases pour choisir sa figure",Color.white);
+        font.drawString(100,250,"Le joueur n°1 appuie sur une des cases pour choisir sa figure",Color.white);
     }
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {

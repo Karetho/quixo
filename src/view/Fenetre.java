@@ -1,8 +1,5 @@
 package view;
-import controller.ControlAccueil;
-import controller.ControlFin;
-import controller.ControlMenu;
-import controller.ControlPlateau;
+import controller.*;
 import model.Jeu;
 import model.Joueurs.Joueurs;
 import model.Plateau;
@@ -17,11 +14,12 @@ public class Fenetre extends StateBasedGame {
     private Jeu jeu;
     private Plateau plateau;
     private ControlFin controlFin;
-
+    private ControlMulti controlMulti;
     private ControlAccueil controlAccueil   ;
 
-    public Fenetre(ControlAccueil controlAccueil,ControlPlateau controlPlateau, Jeu jeu, Plateau plateau, ControlMenu controlMenu, ControlFin controlFin) throws SlickException {
+    public Fenetre(ControlMulti controlMulti, ControlAccueil controlAccueil,ControlPlateau controlPlateau, Jeu jeu, Plateau plateau, ControlMenu controlMenu, ControlFin controlFin) throws SlickException {
         super("Quixo");
+        this.controlMulti = controlMulti;
         this.controlAccueil = controlAccueil;
         this.controlPlateau = controlPlateau;
         this.controlMenu = controlMenu;
@@ -32,6 +30,7 @@ public class Fenetre extends StateBasedGame {
     @Override
     public void initStatesList(GameContainer gameContainer) throws SlickException {
         addState(new Accueil_v(controlAccueil));
+        addState(new Multi_v(controlMulti));
         addState(new Menu_v(jeu,controlMenu));
         addState(new Jeu_v(controlPlateau,jeu,plateau));
         addState(new Fin_v(controlFin,jeu,plateau,controlMenu));

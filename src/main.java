@@ -1,7 +1,4 @@
-import controller.ControlAccueil;
-import controller.ControlFin;
-import controller.ControlMenu;
-import controller.ControlPlateau;
+import controller.*;
 import model.Jeu;
 import model.Plateau;
 import org.newdawn.slick.AppGameContainer;
@@ -18,8 +15,9 @@ public class main {
         ControlFin controlFin = new ControlFin();
         ControlAccueil controlAccueil = new ControlAccueil();
         Jeu jeu = new Jeu();
+        ControlMulti controlMulti = new ControlMulti();
         ControlPlateau plateau = new ControlPlateau(modelPlateau, jeu);
         ControlMenu controlMenu = new ControlMenu(jeu);
-        new AppGameContainer(new Fenetre(controlAccueil,plateau,jeu,modelPlateau,controlMenu,controlFin), 1200, 700, false).start();
+        new AppGameContainer(new Fenetre(controlMulti,controlAccueil,plateau,jeu,modelPlateau,controlMenu,controlFin), 1200, 700, false).start();
     }
 }

@@ -26,10 +26,12 @@ public class ControlAccueil {
         x = input.getMouseX();
         y = input.getMouseY();
         if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON)){
+            System.out.println("x = " + x);
+            System.out.println("y = " + y);
             if(x >= 590 && x <=670 && y >= 250 && y <=285){
                 game.enterState(Menu_v.ID);
             }else if(x >= 590 && x <=670 && y >= 295 && y <=320){
-                // faire le multi
+                game.enterState(Multi_v.ID);
             }
             else if(x >= 590 && x <=670 &&y >= 350 && y <=385){
                 gameContainer.exit();
