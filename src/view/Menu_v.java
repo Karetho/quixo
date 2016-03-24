@@ -44,8 +44,8 @@ public class Menu_v extends BasicGameState {
         this.game = stateBasedGame;
         // il faut rajouter un background propre si possible
         background = new Image("image/debut.jpg");
-        caseRond = new Image("image/rond.png");
-        caseCroix = new Image("image/croix.png");
+        caseRond = new Image("image/EasterRond.jpg");
+        caseCroix = new Image("image/EasterCroix.jpg");
         iaChoice = new Image("image/iaChoice.jpg");
         multi = new Image("image/multi.png");
         setInput(new Input(Input.MOUSE_LEFT_BUTTON));
