@@ -53,8 +53,7 @@ public class ControlMenu {
 
             game.enterState(Jeu_v.ID);
         }
-        else if ((x > 750 && x < 850) && (y > 450 && y < 550)) {
-        }
+
     }
     public void choisirFigure(GameContainer gc, final StateBasedGame game){
         Input input = gc.getInput();

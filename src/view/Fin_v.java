@@ -55,15 +55,15 @@ public class Fin_v extends BasicGameState {
         background.draw(0, 0, gameContainer.getWidth(), gameContainer.getHeight());
         choix = plateau.verifVictoireJoueurFigure();
         if (jeu.getJ1().getFigure()==choix){
-            font.drawString(300, 150, "Bravo, victoire du joueur 1 !", Color.white);
+            font.drawString(300, 150, "Bravo, victoire du joueur 1 !", Color.black);
         }
         else {
 //            font.drawString("Bravo joueurs 2 as gagné !", 300, 300);
-            font.drawString(300, 150, "Bravo, victoire du joueur 2 !", Color.white);
+            font.drawString(300, 150, "Bravo, victoire du joueur 2 !", Color.black);
 //            graphics.setColor(Color.black);
         }
-        font.drawString(300, 570, "Appuyez sur Echap pour quitter", Color.white);
-        font.drawString(230, 620, "Appuyez sur Entree pour recommencer", Color.white);
+        font.drawString(300, 570, "Appuyez sur Echap pour quitter", Color.black);
+        font.drawString(230, 620, "Appuyez sur Entree pour recommencer", Color.black);
     }
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {

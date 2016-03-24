@@ -44,10 +44,10 @@ public class Menu_v extends BasicGameState {
         this.game = stateBasedGame;
         // il faut rajouter un background propre si possible
         background = new Image("image/debut.jpg");
-        caseRond = new Image("image/EasterRond.jpg");
-        caseCroix = new Image("image/EasterCroix.jpg");
+        caseRond = new Image("image/rond.png");
+        caseCroix = new Image("image/croix.png");
         iaChoice = new Image("image/iaChoice.jpg");
-        multi = new Image("image/multi.png");
+        //multi = new Image("image/multi.png");
         setInput(new Input(Input.MOUSE_LEFT_BUTTON));
         font1 = new Font("Comic Sans MS", java.awt.Font.BOLD, 35);
         font = new TrueTypeFont(font1, false);
@@ -61,11 +61,11 @@ public class Menu_v extends BasicGameState {
         caseRond.draw(400,300);
         caseCroix.draw(700,300);
         iaChoice.draw(500,450);
-        multi.draw(750,450);
+       // multi.draw(750,450);
         //graphics.setColor(Color.red);
         //graphics.drawString(joueur.getNomJoueur()+" commence la partie",200,200);
         //graphics.drawString("Appuyez sur une des cases pour choisir votre figure",200,250);
-        font.drawString(100,250,"Le joueur n°1 appuie sur une des cases pour choisir sa figure",Color.white);
+        font.drawString(150,250,"Le joueur n°1 appuie sur une des cases pour choisir sa figure",Color.black);
     }
     @Override
     public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int i) throws SlickException {

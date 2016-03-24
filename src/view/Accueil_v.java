@@ -58,10 +58,10 @@ public class Accueil_v extends BasicGameState {
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics graphics) throws SlickException {
         background.draw(0, 0, gameContainer.getWidth(), gameContainer.getHeight());
         //graphics.draw(background,0,0,gameContainer.getWidth(),gameContainer.getHeight());
-        font.drawString(400,150,"Quixo",Color.white);
-        font3.drawString(600,250,"Solo",Color.white);
-        font3.drawString(600,300,"Multi",Color.white);
-        font3.drawString(600,350,"Quitter",Color.white);
+        font.drawString(400,150,"Quixo",Color.black);
+        font3.drawString(600,250,"Solo",Color.black);
+        font3.drawString(600,300,"Multi",Color.black);
+        font3.drawString(600,350,"Quitter",Color.black);
         //graphics.flush();
 
         //graphics.setColor(Color.red);

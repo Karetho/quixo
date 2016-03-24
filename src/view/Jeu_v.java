@@ -39,9 +39,9 @@ public class Jeu_v extends BasicGameState {
     public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
         game = stateBasedGame;
         bouger = new Image("image/Troll.jpg");
-        caseNeutre = new Image("image/caseEaster.jpg");
-        caseRond = new Image("image/EasterRond.jpg");
-        caseCroix = new Image("image/EasterCroix.jpg");
+        caseNeutre = new Image("image/neige.png");
+        caseRond = new Image("image/rond.png");
+        caseCroix = new Image("image/croix.png");
         flecheDroite = new Image("image/FlecheDroite.png");
         flecheGauche = new Image("image/FlecheGauche.png");
         flecheHaut = new Image("image/FlecheHaut.png");
